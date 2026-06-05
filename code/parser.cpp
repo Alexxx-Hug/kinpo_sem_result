@@ -25,3 +25,8 @@ void Parser::moveNext() {
         ++position;
     }
 }
+
+ExpressionNode* Parser::createNumberNode(long long value) {
+    allocatedNodes.push_back(std::make_unique<ExpressionNode>(value));
+    return allocatedNodes.back().get();
+}
