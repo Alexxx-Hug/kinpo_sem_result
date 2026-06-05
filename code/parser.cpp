@@ -30,3 +30,11 @@ ExpressionNode* Parser::createNumberNode(long long value) {
     allocatedNodes.push_back(std::make_unique<ExpressionNode>(value));
     return allocatedNodes.back().get();
 }
+
+ExpressionNode* Parser::createOperationNode(OperationType operation, ExpressionNode* left, ExpressionNode* right) {
+    allocatedNodes.push_back(
+        std::make_unique<ExpressionNode>(operation, left, right)
+    );
+
+    return allocatedNodes.back().get();
+}
