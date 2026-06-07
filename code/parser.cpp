@@ -212,3 +212,28 @@ ExpressionNode* Parser::parseMulDivExpression() {
 
     return buildMulDivTree(numeratorNodes, denominatorNodes);
 }
+
+ExpressionNode* Parser::buildMulDivTree(
+    std::vector<ExpressionNode*>& numeratorNodes,
+    std::vector<ExpressionNode*>& denominatorNodes
+) {
+    ExpressionNode* current = numeratorNodes[0];
+
+    for (size_t i = 1; i < numeratorNodes.size(); ++i) {
+        current = createOperationNode(
+            OperationType::Multiply,
+            current,
+            numeratorNodes[i]
+        );
+    }
+
+    for (ExpressionNode* denominatorNode : denominatorNodes) {
+        current = createOperationNode(
+            OperationType::Divide,
+            current,
+            denominatorNode
+        );
+    }
+
+    return current;
+}
