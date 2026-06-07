@@ -262,3 +262,28 @@ ExpressionNode* Parser::parseAddSubExpression() {
 
     return buildAddSubTree(positiveNodes, negativeNodes);
 }
+
+ExpressionNode* Parser::buildAddSubTree(
+    std::vector<ExpressionNode*>& positiveNodes,
+    std::vector<ExpressionNode*>& negativeNodes
+) {
+    ExpressionNode* current = positiveNodes[0];
+
+    for (size_t i = 1; i < positiveNodes.size(); ++i) {
+        current = createOperationNode(
+            OperationType::Add,
+            current,
+            positiveNodes[i]
+        );
+    }
+
+    for (ExpressionNode* negativeNode : negativeNodes) {
+        current = createOperationNode(
+            OperationType::Subtract,
+            current,
+            negativeNode
+        );
+    }
+
+    return current;
+}
