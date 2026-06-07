@@ -164,3 +164,26 @@ void Parser::validateTokens(ErrorSet& errors) const {
         );
     }
 }
+
+ExpressionNode* Parser::parseFactor() {
+    if (match(TokenType::Number)) {
+        long long value = currentToken().value;
+        moveNext();
+
+        return createNumberNode(value);
+    }
+
+    if (match(TokenType::LeftBracket)) {
+        moveNext();
+
+        ExpressionNode* node = parseAddSubExpression();
+
+        if (match(TokenType::RightBracket)) {
+            moveNext();
+        }
+
+        return node;
+    }
+
+    return createNumberNode(1);
+}
