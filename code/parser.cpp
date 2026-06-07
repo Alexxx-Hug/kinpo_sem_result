@@ -187,3 +187,28 @@ ExpressionNode* Parser::parseFactor() {
 
     return createNumberNode(1);
 }
+
+ExpressionNode* Parser::parseMulDivExpression() {
+    std::vector<ExpressionNode*> numeratorNodes;
+    std::vector<ExpressionNode*> denominatorNodes;
+
+    numeratorNodes.push_back(parseFactor());
+
+    while (
+        matchOperation(OperationType::Multiply) ||
+        matchOperation(OperationType::Divide)
+    ) {
+        OperationType operation = currentToken().operation;
+        moveNext();
+
+        ExpressionNode* nextNode = parseFactor();
+
+        if (operation == OperationType::Multiply) {
+            numeratorNodes.push_back(nextNode);
+        } else {
+            denominatorNodes.push_back(nextNode);
+        }
+    }
+
+    return buildMulDivTree(numeratorNodes, denominatorNodes);
+}
