@@ -237,3 +237,28 @@ ExpressionNode* Parser::buildMulDivTree(
 
     return current;
 }
+
+ExpressionNode* Parser::parseAddSubExpression() {
+    std::vector<ExpressionNode*> positiveNodes;
+    std::vector<ExpressionNode*> negativeNodes;
+
+    positiveNodes.push_back(parseMulDivExpression());
+
+    while (
+        matchOperation(OperationType::Add) ||
+        matchOperation(OperationType::Subtract)
+    ) {
+        OperationType operation = currentToken().operation;
+        moveNext();
+
+        ExpressionNode* nextNode = parseMulDivExpression();
+
+        if (operation == OperationType::Add) {
+            positiveNodes.push_back(nextNode);
+        } else {
+            negativeNodes.push_back(nextNode);
+        }
+    }
+
+    return buildAddSubTree(positiveNodes, negativeNodes);
+}
