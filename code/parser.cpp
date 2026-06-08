@@ -287,3 +287,40 @@ ExpressionNode* Parser::buildAddSubTree(
 
     return current;
 }
+
+ExpressionNode* Parser::parse(
+    const std::vector<Token>& sourceTokens,
+    ErrorSet& errors
+) {
+    tokens = sourceTokens;
+    position = 0;
+    allocatedNodes.clear();
+
+    validateTokens(errors);
+
+    if (errors.hasErrors()) {
+        return nullptr;
+    }
+
+    ExpressionNode* root = parseAddSubExpression();
+
+    if (!isEnd()) {
+        if (match(TokenType::RightBracket)) {
+            errors.add(
+                ErrorType::BracketBalanceError,
+                "Во входном выражении обнаружена закрывающая скобка без соответствующей открывающей. Проверьте порядок скобок."
+            );
+
+            return nullptr;
+        }
+
+        errors.add(
+            ErrorType::SyntaxError,
+            "Во входном выражении обнаружена синтаксическая ошибка."
+        );
+
+        return nullptr;
+    }
+
+    return root;
+}
