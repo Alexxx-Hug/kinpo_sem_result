@@ -76,3 +76,7 @@ long long ExpressionSolver::calculate(
 
     return result;
 }
+
+void ExpressionSolver::addStep(long long left,long long right,OperationType operation,long long result) {
+    steps.emplace_back(left, right, operation, result);
+}
