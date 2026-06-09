@@ -122,3 +122,28 @@ long long ExpressionSolver::evaluate(const ExpressionNode* node,ErrorSet& errors
 
     return result;
 }
+
+SolveResult ExpressionSolver::solve(
+    const ExpressionNode* root,
+    ErrorSet& errors
+) {
+    steps.clear();
+
+    SolveResult result;
+
+    if (root == nullptr) {
+        errors.add(
+            ErrorType::SyntaxError,
+            "Во входном выражении обнаружена синтаксическая ошибка."
+        );
+
+        result.finalResult = 0;
+        result.steps = steps;
+        return result;
+    }
+
+    result.finalResult = evaluate(root, errors);
+    result.steps = steps;
+
+    return result;
+}
