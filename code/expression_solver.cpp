@@ -80,3 +80,45 @@ long long ExpressionSolver::calculate(
 void ExpressionSolver::addStep(long long left,long long right,OperationType operation,long long result) {
     steps.emplace_back(left, right, operation, result);
 }
+
+long long ExpressionSolver::evaluate(const ExpressionNode* node,ErrorSet& errors) {
+    if (node == nullptr) {
+        errors.add(
+            ErrorType::SyntaxError,
+            "Во входном выражении обнаружена синтаксическая ошибка."
+        );
+
+        return 0;
+    }
+
+    if (node->type == NodeType::Number) {
+        return node->value;
+    }
+
+    long long leftValue = evaluate(node->left, errors);
+
+    if (errors.hasErrors()) {
+        return 0;
+    }
+
+    long long rightValue = evaluate(node->right, errors);
+
+    if (errors.hasErrors()) {
+        return 0;
+    }
+
+    long long result = calculate(
+        leftValue,
+        rightValue,
+        node->operation,
+        errors
+    );
+
+    if (errors.hasErrors()) {
+        return 0;
+    }
+
+    addStep(leftValue, rightValue, node->operation, result);
+
+    return result;
+}
