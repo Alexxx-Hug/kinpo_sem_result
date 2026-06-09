@@ -23,3 +23,31 @@ char StepFormatter::operationToChar(OperationType operation) const {
 
     return '?';
 }
+
+std::vector<std::string> StepFormatter::formatSteps(const std::vector<CalculationStep>& steps,long long finalResult) const {
+    std::vector<std::string> lines;
+
+    if (steps.empty()) {
+        lines.push_back("1) " + std::to_string(finalResult));
+        return lines;
+    }
+
+    for (size_t i = 0; i < steps.size(); ++i) {
+        const CalculationStep& step = steps[i];
+
+        std::ostringstream output;
+
+        output << i + 1 << ") "
+               << step.left
+               << " "
+               << operationToChar(step.operation)
+               << " "
+               << step.right
+               << " = "
+               << step.result;
+
+        lines.push_back(output.str());
+    }
+
+    return lines;
+}
