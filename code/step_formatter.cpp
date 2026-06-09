@@ -51,3 +51,13 @@ std::vector<std::string> StepFormatter::formatSteps(const std::vector<Calculatio
 
     return lines;
 }
+
+std::vector<std::string> StepFormatter::formatErrors(const ErrorSet& errors) const {
+    std::vector<std::string> lines;
+
+    for (const AppError& error : errors.getErrors()) {
+        lines.push_back("Ошибка: " + error.getMessage());
+    }
+
+    return lines;
+}
