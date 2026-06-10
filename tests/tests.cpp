@@ -3,6 +3,7 @@
 #include "app_error.h"
 #include "models.h"
 #include "tokenizer.h"
+#include "parser.h"
 
 #include <string>
 #include <vector>
@@ -803,4 +804,746 @@ TEST(TokenizerTest, ReportsExpressionTooLong) {
 
     ASSERT_FALSE(tokens.empty());
     EXPECT_EQ(tokens.back().type, TokenType::End);
+}
+
+// Вспомогательные функции для создания токенов Parser
+
+namespace {
+
+Token MakeNumberToken(long long value) {
+    return Token(
+        TokenType::Number,
+        std::to_string(value),
+        value
+    );
+}
+
+Token MakeOperationToken(
+    OperationType operation,
+    const std::string& text
+) {
+    return Token(
+        TokenType::Operation,
+        text,
+        operation
+    );
+}
+
+Token MakeLeftBracketToken() {
+    return Token(TokenType::LeftBracket, "(");
+}
+
+Token MakeRightBracketToken() {
+    return Token(TokenType::RightBracket, ")");
+}
+
+Token MakeEndToken() {
+    return Token(TokenType::End, "");
+}
+
+} // namespace
+
+// 1. Корректное выражение из одного числа
+
+TEST(ParserValidationTest, AcceptsSingleNumber) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(5),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    ASSERT_NE(root, nullptr);
+
+    EXPECT_EQ(root->type, NodeType::Number);
+    EXPECT_EQ(root->value, 5);
+}
+
+
+// 2. Корректное сложение
+
+
+TEST(ParserValidationTest, AcceptsCorrectAddition) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 3. Корректное вычитание
+
+
+TEST(ParserValidationTest, AcceptsCorrectSubtraction) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(5),
+        MakeOperationToken(OperationType::Subtract, "-"),
+        MakeNumberToken(2),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 4. Корректное умножение
+
+
+TEST(ParserValidationTest, AcceptsCorrectMultiplication) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(4),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeNumberToken(6),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 5. Корректное деление
+
+
+TEST(ParserValidationTest, AcceptsCorrectDivision) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(8),
+        MakeOperationToken(OperationType::Divide, "/"),
+        MakeNumberToken(2),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 6. Корректное выражение со скобками
+
+
+TEST(ParserValidationTest, AcceptsCorrectBracketExpression) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 7. Корректное выражение с вложенными скобками
+
+
+TEST(ParserValidationTest, AcceptsNestedBrackets) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeNumberToken(4),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+
+// 8. Выражение начинается с операции сложения
+
+
+TEST(ParserValidationTest, RejectsExpressionStartingWithAddition) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+
+// 9. Выражение начинается с операции умножения
+
+
+TEST(ParserValidationTest, RejectsExpressionStartingWithMultiplication) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+
+// 10. Выражение начинается с операции деления
+
+
+TEST(ParserValidationTest, RejectsExpressionStartingWithDivision) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeOperationToken(OperationType::Divide, "/"),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+
+// 11. Выражение начинается с минуса
+
+
+TEST(ParserValidationTest, RejectsExpressionStartingWithMinus) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeOperationToken(OperationType::Subtract, "-"),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::NegativeInputNumber)
+    );
+}
+
+
+// 12. Выражение заканчивается операцией сложения
+
+
+TEST(ParserValidationTest, RejectsExpressionEndingWithAddition) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 13. Выражение заканчивается операцией вычитания
+
+
+TEST(ParserValidationTest, RejectsExpressionEndingWithSubtraction) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Subtract, "-"),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 14. Выражение заканчивается операцией умножения
+
+
+TEST(ParserValidationTest, RejectsExpressionEndingWithMultiplication) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 15. Выражение заканчивается операцией деления
+
+
+TEST(ParserValidationTest, RejectsExpressionEndingWithDivision) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Divide, "/"),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 16. Две операции сложения подряд
+
+
+TEST(ParserValidationTest, RejectsTwoAdditionsInRow) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+
+// 17. Две разные операции подряд
+
+
+TEST(ParserValidationTest, RejectsDifferentOperationsInRow) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeOperationToken(OperationType::Divide, "/"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+
+// 18. Операция после открывающей скобки
+
+
+TEST(ParserValidationTest, RejectsOperationAfterOpeningBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 19. Операция перед закрывающей скобкой
+
+
+TEST(ParserValidationTest, RejectsOperationBeforeClosingBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperand)
+    );
+}
+
+
+// 20. Пустые скобки
+
+
+TEST(ParserValidationTest, RejectsEmptyBrackets) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeLeftBracketToken(),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::EmptyBrackets)
+    );
+}
+
+
+// 21. Нет закрывающей скобки
+
+
+TEST(ParserValidationTest, RejectsMissingClosingBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::BracketBalanceError)
+    );
+}
+
+
+// 22. Лишняя закрывающая скобка
+
+
+TEST(ParserValidationTest, RejectsExtraClosingBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::BracketBalanceError)
+    );
+}
+
+
+// 23. Закрывающая скобка раньше открывающей
+
+
+TEST(ParserValidationTest, RejectsClosingBracketBeforeOpeningBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeRightBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::BracketBalanceError)
+    );
+}
+
+
+// 24. Число перед открывающей скобкой без операции
+
+
+TEST(ParserValidationTest, RejectsNumberBeforeOpeningBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeLeftBracketToken(),
+        MakeNumberToken(3),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(4),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperation)
+    );
+}
+
+
+// 25. Закрывающая скобка перед числом без операции
+
+
+TEST(ParserValidationTest, RejectsNumberAfterClosingBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+        MakeNumberToken(4),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperation)
+    );
+}
+
+
+// 26. Два скобочных выражения подряд
+
+
+TEST(ParserValidationTest, RejectsAdjacentBracketExpressions) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+
+        MakeLeftBracketToken(),
+        MakeNumberToken(4),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(5),
+        MakeRightBracketToken(),
+
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperation)
+    );
+}
+
+
+// 27. Открывающая скобка после закрывающей без операции
+
+
+TEST(ParserValidationTest, RejectsOpeningBracketAfterClosingBracket) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeRightBracketToken(),
+
+        MakeLeftBracketToken(),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::MissingOperation)
+    );
+}
+
+
+// 28. Сложное корректное выражение
+
+
+TEST(ParserValidationTest, AcceptsComplexCorrectExpression) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeLeftBracketToken(),
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeNumberToken(3),
+        MakeRightBracketToken(),
+
+        MakeOperationToken(OperationType::Multiply, "*"),
+
+        MakeLeftBracketToken(),
+        MakeNumberToken(4),
+        MakeOperationToken(OperationType::Subtract, "-"),
+        MakeNumberToken(1),
+        MakeRightBracketToken(),
+
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_NE(root, nullptr);
+}
+
+// 29. Несколько синтаксических ошибок
+
+TEST(ParserValidationTest, ReportsMultipleSyntaxErrors) {
+    Parser parser;
+    ErrorSet errors;
+
+    std::vector<Token> tokens = {
+        MakeNumberToken(2),
+        MakeOperationToken(OperationType::Add, "+"),
+        MakeOperationToken(OperationType::Multiply, "*"),
+        MakeRightBracketToken(),
+        MakeEndToken()
+    };
+
+    ExpressionNode* root = parser.parse(tokens, errors);
+
+    EXPECT_EQ(root, nullptr);
+    EXPECT_TRUE(errors.hasErrors());
+
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::BracketBalanceError)
+    );
 }

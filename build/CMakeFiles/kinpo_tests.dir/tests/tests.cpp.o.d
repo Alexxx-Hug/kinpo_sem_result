@@ -878,6 +878,8 @@ CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o: \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h \
-  /Users/aleksejgodenko/kinpo_sem_result/classes/models.h \
   /Users/aleksejgodenko/kinpo_sem_result/classes/app_error.h \
-  /Users/aleksejgodenko/kinpo_sem_result/classes/tokenizer.h
+  /Users/aleksejgodenko/kinpo_sem_result/classes/models.h \
+  /Users/aleksejgodenko/kinpo_sem_result/classes/tokenizer.h \
+  /Users/aleksejgodenko/kinpo_sem_result/classes/parser.h \
+  /Users/aleksejgodenko/kinpo_sem_result/classes/expression_node.h

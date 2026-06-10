@@ -236,6 +236,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+code/parser.o: code/parser.cpp.o
+.PHONY : code/parser.o
+
+# target to build an object file
+code/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.o
+.PHONY : code/parser.cpp.o
+
+code/parser.i: code/parser.cpp.i
+.PHONY : code/parser.i
+
+# target to preprocess a source file
+code/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.i
+.PHONY : code/parser.cpp.i
+
+code/parser.s: code/parser.cpp.s
+.PHONY : code/parser.s
+
+# target to generate assembly for a file
+code/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.s
+.PHONY : code/parser.cpp.s
+
 code/tokenize.o: code/tokenize.cpp.o
 .PHONY : code/tokenize.o
 
@@ -302,6 +326,9 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... kinpo_tests"
+	@echo "... code/parser.o"
+	@echo "... code/parser.i"
+	@echo "... code/parser.s"
 	@echo "... code/tokenize.o"
 	@echo "... code/tokenize.i"
 	@echo "... code/tokenize.s"
