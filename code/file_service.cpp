@@ -24,11 +24,7 @@ std::string FileService::readAll(
     return buffer.str();
 }
 
-void FileService::writeLines(
-    const std::string& path,
-    const std::vector<std::string>& lines,
-    ErrorSet& errors
-) const {
+void FileService::writeLines(const std::string& path,const std::vector<std::string>& lines,ErrorSet& errors) const {
     std::ofstream output(path);
 
     if (!output.is_open()) {
