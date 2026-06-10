@@ -20,6 +20,7 @@ add_executable(kinpo_tests
     tests/tests.cpp
     code/tokenize.cpp
     code/parser.cpp
+    code/expression_solver.cpp
 )
 
 target_include_directories(kinpo_tests PRIVATE

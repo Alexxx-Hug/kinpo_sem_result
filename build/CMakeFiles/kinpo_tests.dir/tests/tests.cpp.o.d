@@ -882,4 +882,5 @@ CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o: \
   /Users/aleksejgodenko/kinpo_sem_result/classes/models.h \
   /Users/aleksejgodenko/kinpo_sem_result/classes/tokenizer.h \
   /Users/aleksejgodenko/kinpo_sem_result/classes/parser.h \
-  /Users/aleksejgodenko/kinpo_sem_result/classes/expression_node.h
+  /Users/aleksejgodenko/kinpo_sem_result/classes/expression_node.h \
+  /Users/aleksejgodenko/kinpo_sem_result/classes/expression_solver.h

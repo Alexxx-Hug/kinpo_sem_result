@@ -4,9 +4,12 @@
 #include "models.h"
 #include "tokenizer.h"
 #include "parser.h"
+#include "expression_solver.h"
+
+#include <memory>
+#include <vector>
 
 #include <string>
-#include <vector>
 
 TEST(CalculationStepTest, CreatesAdditionStep) {
     CalculationStep step{
@@ -1546,4 +1549,851 @@ TEST(ParserValidationTest, ReportsMultipleSyntaxErrors) {
     EXPECT_TRUE(
         HasErrorType(errors, ErrorType::BracketBalanceError)
     );
+}
+
+// Вспомогательный класс для создания тестовых деревьев
+
+namespace {
+
+class TestTree {
+public:
+    ExpressionNode* number(long long value) {
+        nodes.push_back(
+            std::make_unique<ExpressionNode>(value)
+        );
+
+        return nodes.back().get();
+    }
+
+    ExpressionNode* operation(
+        OperationType operationType,
+        ExpressionNode* left,
+        ExpressionNode* right
+    ) {
+        nodes.push_back(
+            std::make_unique<ExpressionNode>(
+                operationType,
+                left,
+                right
+            )
+        );
+
+        return nodes.back().get();
+    }
+
+private:
+    std::vector<std::unique_ptr<ExpressionNode>> nodes;
+};
+
+}
+
+// Тесты ExpressionSolver::solve()
+
+// 1. Пустое дерево
+
+TEST(ExpressionSolverTest, ReportsErrorForNullRoot) {
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    SolveResult result = solver.solve(nullptr, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::SyntaxError)
+    );
+}
+
+// 2. Дерево из одного числа
+
+TEST(ExpressionSolverTest, SolvesSingleNumberTree) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.number(5);
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 5);
+    EXPECT_TRUE(result.steps.empty());
+}
+
+// 3. Простое сложение
+
+TEST(ExpressionSolverTest, SolvesSimpleAddition) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 5);
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(
+        result.steps[0].operation,
+        OperationType::Add
+    );
+    EXPECT_EQ(result.steps[0].result, 5);
+}
+
+// 4. Простое вычитание
+
+TEST(ExpressionSolverTest, SolvesSimpleSubtraction) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        tree.number(5),
+        tree.number(2)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 3);
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 5);
+    EXPECT_EQ(result.steps[0].right, 2);
+    EXPECT_EQ(
+        result.steps[0].operation,
+        OperationType::Subtract
+    );
+    EXPECT_EQ(result.steps[0].result, 3);
+}
+
+// 5. Простое умножение
+
+TEST(ExpressionSolverTest, SolvesSimpleMultiplication) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Multiply,
+        tree.number(4),
+        tree.number(6)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 24);
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 4);
+    EXPECT_EQ(result.steps[0].right, 6);
+    EXPECT_EQ(
+        result.steps[0].operation,
+        OperationType::Multiply
+    );
+    EXPECT_EQ(result.steps[0].result, 24);
+}
+
+// 6. Простое деление
+
+TEST(ExpressionSolverTest, SolvesSimpleDivision) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        tree.number(8),
+        tree.number(2)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 4);
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 8);
+    EXPECT_EQ(result.steps[0].right, 2);
+    EXPECT_EQ(
+        result.steps[0].operation,
+        OperationType::Divide
+    );
+    EXPECT_EQ(result.steps[0].result, 4);
+}
+
+// 7. Выражение с несколькими сложениями
+
+TEST(ExpressionSolverTest, SolvesMultipleAdditions) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* firstAddition = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Add,
+        firstAddition,
+        tree.number(4)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 9);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(result.steps[0].result, 5);
+
+    EXPECT_EQ(result.steps[1].left, 5);
+    EXPECT_EQ(result.steps[1].right, 4);
+    EXPECT_EQ(result.steps[1].result, 9);
+}
+
+// 8. Выражение с несколькими вычитаниями
+
+TEST(ExpressionSolverTest, SolvesMultipleSubtractions) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* firstSubtraction = tree.operation(
+        OperationType::Subtract,
+        tree.number(10),
+        tree.number(3)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        firstSubtraction,
+        tree.number(2)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 5);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 10);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(result.steps[0].result, 7);
+
+    EXPECT_EQ(result.steps[1].left, 7);
+    EXPECT_EQ(result.steps[1].right, 2);
+    EXPECT_EQ(result.steps[1].result, 5);
+}
+
+// 9. Безопасный порядок сложения и вычитания
+
+TEST(ExpressionSolverTest, SolvesSafeAdditionSubtractionTree) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* addition = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(5)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        addition,
+        tree.number(3)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 4);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 5);
+    EXPECT_EQ(
+        result.steps[0].operation,
+        OperationType::Add
+    );
+    EXPECT_EQ(result.steps[0].result, 7);
+
+    EXPECT_EQ(result.steps[1].left, 7);
+    EXPECT_EQ(result.steps[1].right, 3);
+    EXPECT_EQ(
+        result.steps[1].operation,
+        OperationType::Subtract
+    );
+    EXPECT_EQ(result.steps[1].result, 4);
+}
+
+// 10. Вычитание даёт отрицательный результат
+
+TEST(ExpressionSolverTest, ReportsNegativeSubtractionResult) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        tree.number(2),
+        tree.number(5)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::NegativeResult)
+    );
+}
+
+// 11. Ошибка после нескольких успешных шагов
+
+TEST(ExpressionSolverTest, PreservesSuccessfulStepsBeforeError) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* addition = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    ExpressionNode* firstSubtraction = tree.operation(
+        OperationType::Subtract,
+        addition,
+        tree.number(4)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        firstSubtraction,
+        tree.number(9)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::NegativeResult)
+    );
+
+    // Ошибочный шаг 1 - 9 не сохраняется.
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(result.steps[0].result, 5);
+
+    EXPECT_EQ(result.steps[1].left, 5);
+    EXPECT_EQ(result.steps[1].right, 4);
+    EXPECT_EQ(result.steps[1].result, 1);
+}
+
+// 12. Выражение с несколькими умножениями
+
+TEST(ExpressionSolverTest, SolvesMultipleMultiplications) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* firstMultiplication = tree.operation(
+        OperationType::Multiply,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Multiply,
+        firstMultiplication,
+        tree.number(4)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 24);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(result.steps[0].result, 6);
+
+    EXPECT_EQ(result.steps[1].left, 6);
+    EXPECT_EQ(result.steps[1].right, 4);
+    EXPECT_EQ(result.steps[1].result, 24);
+}
+
+// 13. Выражение с несколькими делениями
+
+TEST(ExpressionSolverTest, SolvesMultipleDivisions) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* firstDivision = tree.operation(
+        OperationType::Divide,
+        tree.number(100),
+        tree.number(5)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        firstDivision,
+        tree.number(2)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 10);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 100);
+    EXPECT_EQ(result.steps[0].right, 5);
+    EXPECT_EQ(result.steps[0].result, 20);
+
+    EXPECT_EQ(result.steps[1].left, 20);
+    EXPECT_EQ(result.steps[1].right, 2);
+    EXPECT_EQ(result.steps[1].result, 10);
+}
+
+// 14. Безопасный порядок умножения и деления
+
+TEST(ExpressionSolverTest, SolvesSafeMultiplicationDivisionTree) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* multiplication = tree.operation(
+        OperationType::Multiply,
+        tree.number(2),
+        tree.number(10)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        multiplication,
+        tree.number(5)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 4);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 10);
+    EXPECT_EQ(result.steps[0].result, 20);
+
+    EXPECT_EQ(result.steps[1].left, 20);
+    EXPECT_EQ(result.steps[1].right, 5);
+    EXPECT_EQ(result.steps[1].result, 4);
+}
+
+// 15. Деление приводит к дробному результату
+
+TEST(ExpressionSolverTest, ReportsFractionResult) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        tree.number(2),
+        tree.number(5)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::FractionResult)
+    );
+}
+
+// 16. Деление на ноль
+
+TEST(ExpressionSolverTest, ReportsDivisionByZero) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        tree.number(8),
+        tree.number(0)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::DivisionByZero)
+    );
+}
+
+// 17. Ошибка деления после успешного шага
+
+TEST(ExpressionSolverTest, KeepsAdditionStepBeforeFractionError) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* addition = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        addition,
+        tree.number(2)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(errors, ErrorType::FractionResult)
+    );
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 2);
+    EXPECT_EQ(result.steps[0].right, 3);
+    EXPECT_EQ(result.steps[0].result, 5);
+}
+
+// 18. Сложное выражение со скобками
+
+TEST(ExpressionSolverTest, SolvesComplexBracketExpression) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* addition = tree.operation(
+        OperationType::Add,
+        tree.number(8),
+        tree.number(4)
+    );
+
+    ExpressionNode* subtraction = tree.operation(
+        OperationType::Subtract,
+        tree.number(9),
+        tree.number(3)
+    );
+
+    ExpressionNode* multiplication = tree.operation(
+        OperationType::Multiply,
+        addition,
+        subtraction
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        multiplication,
+        tree.number(6)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 12);
+
+    ASSERT_EQ(result.steps.size(), 4);
+
+    EXPECT_EQ(result.steps[0].result, 12);
+    EXPECT_EQ(result.steps[1].result, 6);
+    EXPECT_EQ(result.steps[2].result, 72);
+    EXPECT_EQ(result.steps[3].result, 12);
+}
+
+// 19. Сложное выражение с несколькими поддеревьями
+
+TEST(ExpressionSolverTest, SolvesComplexExpressionWithSubtrees) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* leftAddition = tree.operation(
+        OperationType::Add,
+        tree.number(8),
+        tree.number(4)
+    );
+
+    ExpressionNode* leftSubtraction = tree.operation(
+        OperationType::Subtract,
+        tree.number(9),
+        tree.number(3)
+    );
+
+    ExpressionNode* multiplication = tree.operation(
+        OperationType::Multiply,
+        leftAddition,
+        leftSubtraction
+    );
+
+    ExpressionNode* division = tree.operation(
+        OperationType::Divide,
+        multiplication,
+        tree.number(6)
+    );
+
+    ExpressionNode* rightAddition = tree.operation(
+        OperationType::Add,
+        tree.number(7),
+        tree.number(5)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Add,
+        division,
+        rightAddition
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 24);
+
+    ASSERT_EQ(result.steps.size(), 6);
+
+    EXPECT_EQ(result.steps[0].result, 12);
+    EXPECT_EQ(result.steps[1].result, 6);
+    EXPECT_EQ(result.steps[2].result, 72);
+    EXPECT_EQ(result.steps[3].result, 12);
+    EXPECT_EQ(result.steps[4].result, 12);
+    EXPECT_EQ(result.steps[5].result, 24);
+}
+
+// 20. Переполнение при сложении
+
+TEST(ExpressionSolverTest, ReportsAdditionOverflow) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Add,
+        tree.number(1000000000),
+        tree.number(1)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(
+            errors,
+            ErrorType::IntermediateOverflow
+        )
+    );
+}
+
+// 21. Переполнение при умножении
+
+TEST(ExpressionSolverTest, ReportsMultiplicationOverflow) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Multiply,
+        tree.number(500000),
+        tree.number(500000)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_EQ(result.finalResult, 0);
+    EXPECT_TRUE(result.steps.empty());
+
+    EXPECT_TRUE(errors.hasErrors());
+    EXPECT_TRUE(
+        HasErrorType(
+            errors,
+            ErrorType::IntermediateOverflow
+        )
+    );
+}
+
+// 22. Выражение с итоговым результатом 0
+
+TEST(ExpressionSolverTest, AllowsZeroSubtractionResult) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Subtract,
+        tree.number(5),
+        tree.number(5)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 0);
+
+    ASSERT_EQ(result.steps.size(), 1);
+
+    EXPECT_EQ(result.steps[0].left, 5);
+    EXPECT_EQ(result.steps[0].right, 5);
+    EXPECT_EQ(result.steps[0].result, 0);
+}
+
+// 23. Деление после умножения
+
+TEST(ExpressionSolverTest, SolvesDivisionAfterMultiplication) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* multiplication = tree.operation(
+        OperationType::Multiply,
+        tree.number(3),
+        tree.number(10)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Divide,
+        multiplication,
+        tree.number(5)
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 6);
+
+    ASSERT_EQ(result.steps.size(), 2);
+
+    EXPECT_EQ(result.steps[0].left, 3);
+    EXPECT_EQ(result.steps[0].right, 10);
+    EXPECT_EQ(result.steps[0].result, 30);
+
+    EXPECT_EQ(result.steps[1].left, 30);
+    EXPECT_EQ(result.steps[1].right, 5);
+    EXPECT_EQ(result.steps[1].result, 6);
+}
+
+// 24. Выражение с левой и правой частью
+
+TEST(ExpressionSolverTest, SolvesLeftAndRightSubtrees) {
+    TestTree tree;
+    ExpressionSolver solver;
+    ErrorSet errors;
+
+    ExpressionNode* multiplication = tree.operation(
+        OperationType::Multiply,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    ExpressionNode* division = tree.operation(
+        OperationType::Divide,
+        tree.number(8),
+        tree.number(4)
+    );
+
+    ExpressionNode* root = tree.operation(
+        OperationType::Add,
+        multiplication,
+        division
+    );
+
+    SolveResult result = solver.solve(root, errors);
+
+    EXPECT_FALSE(errors.hasErrors());
+    EXPECT_EQ(result.finalResult, 8);
+
+    ASSERT_EQ(result.steps.size(), 3);
+
+    EXPECT_EQ(result.steps[0].result, 6);
+    EXPECT_EQ(result.steps[1].result, 2);
+
+    EXPECT_EQ(result.steps[2].left, 6);
+    EXPECT_EQ(result.steps[2].right, 2);
+    EXPECT_EQ(result.steps[2].result, 8);
+}
+
+// 25. Повторный запуск очищает старые шаги
+
+TEST(ExpressionSolverTest, ClearsStepsBeforeNextSolve) {
+    TestTree tree;
+    ExpressionSolver solver;
+
+    ErrorSet firstErrors;
+
+    ExpressionNode* firstRoot = tree.operation(
+        OperationType::Add,
+        tree.number(2),
+        tree.number(3)
+    );
+
+    SolveResult firstResult =
+        solver.solve(firstRoot, firstErrors);
+
+    EXPECT_FALSE(firstErrors.hasErrors());
+    EXPECT_EQ(firstResult.finalResult, 5);
+    ASSERT_EQ(firstResult.steps.size(), 1);
+
+    ErrorSet secondErrors;
+
+    ExpressionNode* secondRoot = tree.number(7);
+
+    SolveResult secondResult =
+        solver.solve(secondRoot, secondErrors);
+
+    EXPECT_FALSE(secondErrors.hasErrors());
+    EXPECT_EQ(secondResult.finalResult, 7);
+    EXPECT_TRUE(secondResult.steps.empty());
 }

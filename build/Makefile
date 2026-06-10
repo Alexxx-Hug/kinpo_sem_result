@@ -236,6 +236,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+code/expression_solver.o: code/expression_solver.cpp.o
+.PHONY : code/expression_solver.o
+
+# target to build an object file
+code/expression_solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o
+.PHONY : code/expression_solver.cpp.o
+
+code/expression_solver.i: code/expression_solver.cpp.i
+.PHONY : code/expression_solver.i
+
+# target to preprocess a source file
+code/expression_solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.i
+.PHONY : code/expression_solver.cpp.i
+
+code/expression_solver.s: code/expression_solver.cpp.s
+.PHONY : code/expression_solver.s
+
+# target to generate assembly for a file
+code/expression_solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.s
+.PHONY : code/expression_solver.cpp.s
+
 code/parser.o: code/parser.cpp.o
 .PHONY : code/parser.o
 
@@ -326,6 +350,9 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... kinpo_tests"
+	@echo "... code/expression_solver.o"
+	@echo "... code/expression_solver.i"
+	@echo "... code/expression_solver.s"
 	@echo "... code/parser.o"
 	@echo "... code/parser.i"
 	@echo "... code/parser.s"

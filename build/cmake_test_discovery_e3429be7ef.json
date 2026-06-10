@@ -1,5 +1,5 @@
 {
-  "tests": 63,
+  "tests": 88,
   "name": "AllTests",
   "testsuites": [
     {
@@ -9,47 +9,47 @@
         {
           "name": "CreatesAdditionStep",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 11
+          "line": 14
         },
         {
           "name": "CreatesSubtractionStep",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 25
+          "line": 28
         },
         {
           "name": "CreatesMultiplicationStep",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 39
+          "line": 42
         },
         {
           "name": "CreatesDivisionStep",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 53
+          "line": 56
         },
         {
           "name": "StoresZeroResult",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 67
+          "line": 70
         },
         {
           "name": "StoresLargeResult",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 81
+          "line": 84
         },
         {
           "name": "AddsStepToVector",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 95
+          "line": 98
         },
         {
           "name": "PreservesStepsOrder",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 113
+          "line": 116
         },
         {
           "name": "ClearsStepsVector",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 139
+          "line": 142
         }
       ]
     },
@@ -60,127 +60,127 @@
         {
           "name": "ReportsEmptyInput",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 176
+          "line": 179
         },
         {
           "name": "ReportsOnlySpacesInput",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 194
+          "line": 197
         },
         {
           "name": "TokenizesSingleNumber",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 212
+          "line": 215
         },
         {
           "name": "ReportsZeroOperand",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 232
+          "line": 235
         },
         {
           "name": "AcceptsMaximumInputNumber",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 253
+          "line": 256
         },
         {
           "name": "ReportsNumberOutOfRange",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 271
+          "line": 274
         },
         {
           "name": "TokenizesSimpleAddition",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 292
+          "line": 295
         },
         {
           "name": "TokenizesSimpleSubtraction",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 317
+          "line": 320
         },
         {
           "name": "TokenizesSimpleMultiplication",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 342
+          "line": 345
         },
         {
           "name": "TokenizesSimpleDivision",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 367
+          "line": 370
         },
         {
           "name": "TokenizesAllSupportedOperations",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 392
+          "line": 395
         },
         {
           "name": "TokenizesBrackets",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 420
+          "line": 423
         },
         {
           "name": "TokenizesNestedBrackets",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 448
+          "line": 451
         },
         {
           "name": "IgnoresExtraSpaces",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 488
+          "line": 491
         },
         {
           "name": "ReportsDecimalPoint",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 516
+          "line": 519
         },
         {
           "name": "ReportsDecimalComma",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 547
+          "line": 550
         },
         {
           "name": "ReportsInvalidLatinSymbol",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 578
+          "line": 581
         },
         {
           "name": "ReportsInvalidCyrillicSymbol",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 603
+          "line": 606
         },
         {
           "name": "ReportsUnsupportedOperation",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 628
+          "line": 631
         },
         {
           "name": "TokenizesExpressionStartingWithMinus",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 653
+          "line": 656
         },
         {
           "name": "KeepsConsecutiveNumbersAsSeparateTokens",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 681
+          "line": 684
         },
         {
           "name": "TokenizesExpressionEndingWithOperation",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 703
+          "line": 706
         },
         {
           "name": "KeepsConsecutiveOperationsAsSeparateTokens",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 731
+          "line": 734
         },
         {
           "name": "TokenizesEmptyBrackets",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 759
+          "line": 762
         },
         {
           "name": "ReportsExpressionTooLong",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 783
+          "line": 786
         }
       ]
     },
@@ -191,147 +191,278 @@
         {
           "name": "AcceptsSingleNumber",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 848
+          "line": 851
         },
         {
           "name": "AcceptsCorrectAddition",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 870
+          "line": 873
         },
         {
           "name": "AcceptsCorrectSubtraction",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 891
+          "line": 894
         },
         {
           "name": "AcceptsCorrectMultiplication",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 912
+          "line": 915
         },
         {
           "name": "AcceptsCorrectDivision",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 933
+          "line": 936
         },
         {
           "name": "AcceptsCorrectBracketExpression",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 954
+          "line": 957
         },
         {
           "name": "AcceptsNestedBrackets",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 977
+          "line": 980
         },
         {
           "name": "RejectsExpressionStartingWithAddition",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1004
+          "line": 1007
         },
         {
           "name": "RejectsExpressionStartingWithMultiplication",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1029
+          "line": 1032
         },
         {
           "name": "RejectsExpressionStartingWithDivision",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1053
+          "line": 1056
         },
         {
           "name": "RejectsExpressionStartingWithMinus",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1077
+          "line": 1080
         },
         {
           "name": "RejectsExpressionEndingWithAddition",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1101
+          "line": 1104
         },
         {
           "name": "RejectsExpressionEndingWithSubtraction",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1123
+          "line": 1126
         },
         {
           "name": "RejectsExpressionEndingWithMultiplication",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1145
+          "line": 1148
         },
         {
           "name": "RejectsExpressionEndingWithDivision",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1167
+          "line": 1170
         },
         {
           "name": "RejectsTwoAdditionsInRow",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1189
+          "line": 1192
         },
         {
           "name": "RejectsDifferentOperationsInRow",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1213
+          "line": 1216
         },
         {
           "name": "RejectsOperationAfterOpeningBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1237
+          "line": 1240
         },
         {
           "name": "RejectsOperationBeforeClosingBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1263
+          "line": 1266
         },
         {
           "name": "RejectsEmptyBrackets",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1287
+          "line": 1290
         },
         {
           "name": "RejectsMissingClosingBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1311
+          "line": 1314
         },
         {
           "name": "RejectsExtraClosingBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1335
+          "line": 1338
         },
         {
           "name": "RejectsClosingBracketBeforeOpeningBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1359
+          "line": 1362
         },
         {
           "name": "RejectsNumberBeforeOpeningBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1383
+          "line": 1386
         },
         {
           "name": "RejectsNumberAfterClosingBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1409
+          "line": 1412
         },
         {
           "name": "RejectsAdjacentBracketExpressions",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1435
+          "line": 1438
         },
         {
           "name": "RejectsOpeningBracketAfterClosingBracket",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1467
+          "line": 1470
         },
         {
           "name": "AcceptsComplexCorrectExpression",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1495
+          "line": 1498
         },
         {
           "name": "ReportsMultipleSyntaxErrors",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
-          "line": 1525
+          "line": 1528
+        }
+      ]
+    },
+    {
+      "name": "ExpressionSolverTest",
+      "tests": 25,
+      "testsuite": [
+        {
+          "name": "ReportsErrorForNullRoot",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1594
+        },
+        {
+          "name": "SolvesSingleNumberTree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1611
+        },
+        {
+          "name": "SolvesSimpleAddition",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1627
+        },
+        {
+          "name": "SolvesSimpleSubtraction",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1656
+        },
+        {
+          "name": "SolvesSimpleMultiplication",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1685
+        },
+        {
+          "name": "SolvesSimpleDivision",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1714
+        },
+        {
+          "name": "SolvesMultipleAdditions",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1743
+        },
+        {
+          "name": "SolvesMultipleSubtractions",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1778
+        },
+        {
+          "name": "SolvesSafeAdditionSubtractionTree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1813
+        },
+        {
+          "name": "ReportsNegativeSubtractionResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1856
+        },
+        {
+          "name": "PreservesSuccessfulStepsBeforeError",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1880
+        },
+        {
+          "name": "SolvesMultipleMultiplications",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1926
+        },
+        {
+          "name": "SolvesMultipleDivisions",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1961
+        },
+        {
+          "name": "SolvesSafeMultiplicationDivisionTree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 1996
+        },
+        {
+          "name": "ReportsFractionResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2031
+        },
+        {
+          "name": "ReportsDivisionByZero",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2055
+        },
+        {
+          "name": "KeepsAdditionStepBeforeFractionError",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2079
+        },
+        {
+          "name": "SolvesComplexBracketExpression",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2114
+        },
+        {
+          "name": "SolvesComplexExpressionWithSubtrees",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2158
+        },
+        {
+          "name": "ReportsAdditionOverflow",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2216
+        },
+        {
+          "name": "ReportsMultiplicationOverflow",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2243
+        },
+        {
+          "name": "AllowsZeroSubtractionResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2270
+        },
+        {
+          "name": "SolvesDivisionAfterMultiplication",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2295
+        },
+        {
+          "name": "SolvesLeftAndRightSubtrees",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2330
+        },
+        {
+          "name": "ClearsStepsBeforeNextSolve",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2370
         }
       ]
     }
