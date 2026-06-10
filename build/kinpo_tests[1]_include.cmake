@@ -1,0 +1,5 @@
+if(EXISTS "/Users/aleksejgodenko/kinpo_sem_result/build/kinpo_tests[1]_tests.cmake")
+  include("/Users/aleksejgodenko/kinpo_sem_result/build/kinpo_tests[1]_tests.cmake")
+else()
+  add_test(kinpo_tests_NOT_BUILT kinpo_tests_NOT_BUILT)
+endif()

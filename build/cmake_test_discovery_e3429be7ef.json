@@ -1,0 +1,57 @@
+{
+  "tests": 9,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "CalculationStepTest",
+      "tests": 9,
+      "testsuite": [
+        {
+          "name": "CreatesAdditionStep",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 7
+        },
+        {
+          "name": "CreatesSubtractionStep",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 21
+        },
+        {
+          "name": "CreatesMultiplicationStep",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 35
+        },
+        {
+          "name": "CreatesDivisionStep",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 49
+        },
+        {
+          "name": "StoresZeroResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 63
+        },
+        {
+          "name": "StoresLargeResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 77
+        },
+        {
+          "name": "AddsStepToVector",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 91
+        },
+        {
+          "name": "PreservesStepsOrder",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 109
+        },
+        {
+          "name": "ClearsStepsVector",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 135
+        }
+      ]
+    }
+  ]
+}
