@@ -848,10 +848,15 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o:
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/span \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/map.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest-assertion-result.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest-message.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest-death-test.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/gtest-matchers.h \
@@ -862,12 +867,7 @@ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o:
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/float.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/__float_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/21/include/__float_float.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/map.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/set.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-filepath.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-string.h \
   /Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \

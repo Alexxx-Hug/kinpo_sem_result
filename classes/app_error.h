@@ -17,6 +17,7 @@ enum class ErrorType {
     NumberOutOfRange,
     ExpressionTooLong,
 
+    UnknownOperation,
     SyntaxError,
     BracketBalanceError,
     EmptyBrackets,

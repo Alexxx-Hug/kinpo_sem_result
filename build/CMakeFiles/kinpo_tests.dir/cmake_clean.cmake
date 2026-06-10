@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o"
+  "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o.d"
   "CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o"
   "CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o.d"
   "kinpo_tests"

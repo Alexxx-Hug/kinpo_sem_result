@@ -97,7 +97,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"gmock\" \"gtest\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -236,6 +236,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+code/tokenize.o: code/tokenize.cpp.o
+.PHONY : code/tokenize.o
+
+# target to build an object file
+code/tokenize.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o
+.PHONY : code/tokenize.cpp.o
+
+code/tokenize.i: code/tokenize.cpp.i
+.PHONY : code/tokenize.i
+
+# target to preprocess a source file
+code/tokenize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.i
+.PHONY : code/tokenize.cpp.i
+
+code/tokenize.s: code/tokenize.cpp.s
+.PHONY : code/tokenize.s
+
+# target to generate assembly for a file
+code/tokenize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.s
+.PHONY : code/tokenize.cpp.s
+
 tests/tests.o: tests/tests.cpp.o
 .PHONY : tests/tests.o
 
@@ -278,6 +302,9 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... kinpo_tests"
+	@echo "... code/tokenize.o"
+	@echo "... code/tokenize.i"
+	@echo "... code/tokenize.s"
 	@echo "... tests/tests.o"
 	@echo "... tests/tests.i"
 	@echo "... tests/tests.s"

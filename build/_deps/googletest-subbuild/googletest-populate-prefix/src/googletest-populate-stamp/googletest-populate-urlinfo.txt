@@ -6,7 +6,7 @@ method=url
 command=/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/download-googletest-populate.cmake;COMMAND;/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/verify-googletest-populate.cmake;COMMAND;/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/extract-googletest-populate.cmake
 source_dir=/Users/aleksejgodenko/kinpo_sem_result/build/_deps/googletest-src
 work_dir=/Users/aleksejgodenko/kinpo_sem_result/build/_deps
-url(s)=https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+url(s)=https://github.com/google/googletest/archive/refs/tags/v1.17.0.zip
 hash=
       no_extract=
 

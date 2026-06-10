@@ -1,5 +1,5 @@
 {
-  "tests": 9,
+  "tests": 34,
   "name": "AllTests",
   "testsuites": [
     {
@@ -50,6 +50,137 @@
           "name": "ClearsStepsVector",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
           "line": 135
+        }
+      ]
+    },
+    {
+      "name": "TokenizerTest",
+      "tests": 25,
+      "testsuite": [
+        {
+          "name": "ReportsEmptyInput",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 181
+        },
+        {
+          "name": "ReportsOnlySpacesInput",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 199
+        },
+        {
+          "name": "TokenizesSingleNumber",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 217
+        },
+        {
+          "name": "ReportsZeroOperand",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 237
+        },
+        {
+          "name": "AcceptsMaximumInputNumber",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 258
+        },
+        {
+          "name": "ReportsNumberOutOfRange",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 276
+        },
+        {
+          "name": "TokenizesSimpleAddition",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 297
+        },
+        {
+          "name": "TokenizesSimpleSubtraction",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 322
+        },
+        {
+          "name": "TokenizesSimpleMultiplication",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 347
+        },
+        {
+          "name": "TokenizesSimpleDivision",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 372
+        },
+        {
+          "name": "TokenizesAllSupportedOperations",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 397
+        },
+        {
+          "name": "TokenizesBrackets",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 425
+        },
+        {
+          "name": "TokenizesNestedBrackets",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 453
+        },
+        {
+          "name": "IgnoresExtraSpaces",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 493
+        },
+        {
+          "name": "ReportsDecimalPoint",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 521
+        },
+        {
+          "name": "ReportsDecimalComma",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 552
+        },
+        {
+          "name": "ReportsInvalidLatinSymbol",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 583
+        },
+        {
+          "name": "ReportsInvalidCyrillicSymbol",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 608
+        },
+        {
+          "name": "ReportsUnsupportedOperation",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 633
+        },
+        {
+          "name": "TokenizesExpressionStartingWithMinus",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 658
+        },
+        {
+          "name": "KeepsConsecutiveNumbersAsSeparateTokens",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 686
+        },
+        {
+          "name": "TokenizesExpressionEndingWithOperation",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 708
+        },
+        {
+          "name": "KeepsConsecutiveOperationsAsSeparateTokens",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 736
+        },
+        {
+          "name": "TokenizesEmptyBrackets",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 764
+        },
+        {
+          "name": "ReportsExpressionTooLong",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 788
         }
       ]
     }

@@ -58,7 +58,7 @@ long long ExpressionSolver::calculate(
         result = left / right;
     } else {
         errors.add(
-            ErrorType::SyntaxError,
+            ErrorType::UnknownOperation,
             "Во входном выражении обнаружена неизвестная операция."
         );
 
