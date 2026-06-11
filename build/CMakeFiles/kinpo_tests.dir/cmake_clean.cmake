@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o"
   "CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o.d"
+  "CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o"
+  "CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o.d"
   "CMakeFiles/kinpo_tests.dir/code/parser.cpp.o"
   "CMakeFiles/kinpo_tests.dir/code/parser.cpp.o.d"
+  "CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o"
+  "CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o.d"
   "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o"
   "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o.d"
   "CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o"

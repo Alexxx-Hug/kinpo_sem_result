@@ -9,7 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp" "CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o.d"
+  "/Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp" "CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o.d"
   "/Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp" "CMakeFiles/kinpo_tests.dir/code/parser.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/code/parser.cpp.o.d"
+  "/Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp" "CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o.d"
   "/Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp" "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o.d"
   "/Users/aleksejgodenko/kinpo_sem_result/tests/tests.cpp" "CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o" "gcc" "CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o.d"
   )

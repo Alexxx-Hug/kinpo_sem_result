@@ -1,5 +1,5 @@
 {
-  "tests": 103,
+  "tests": 118,
   "name": "AllTests",
   "testsuites": [
     {
@@ -544,6 +544,87 @@
           "name": "EvaluatesComplexCorrectTree",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
           "line": 2823
+        }
+      ]
+    },
+    {
+      "name": "ExpressionCalculateTest",
+      "tests": 15,
+      "testsuite": [
+        {
+          "name": "CalculatesAddition",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2884
+        },
+        {
+          "name": "CalculatesSubtraction",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2909
+        },
+        {
+          "name": "CalculatesMultiplication",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2937
+        },
+        {
+          "name": "CalculatesDivision",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2965
+        },
+        {
+          "name": "AllowsZeroSubtractionResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2993
+        },
+        {
+          "name": "ReportsNegativeResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3015
+        },
+        {
+          "name": "ReportsFractionResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3038
+        },
+        {
+          "name": "ReportsDivisionByZero",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3061
+        },
+        {
+          "name": "ReportsAdditionOverflow",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3084
+        },
+        {
+          "name": "ReportsMultiplicationOverflow",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3110
+        },
+        {
+          "name": "ReportsUnknownOperation",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3136
+        },
+        {
+          "name": "DividesZeroByNumber",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3159
+        },
+        {
+          "name": "MultipliesByOne",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3183
+        },
+        {
+          "name": "DividesByOne",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3205
+        },
+        {
+          "name": "AcceptsMaximumIntermediateResult",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 3227
         }
       ]
     }

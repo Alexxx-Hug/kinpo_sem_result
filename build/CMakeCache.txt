@@ -200,7 +200,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=kinpo_tests_project
+CMAKE_PROJECT_NAME:STATIC=kinpo
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
@@ -360,13 +360,13 @@ gtest_force_shared_crt:BOOL=OFF
 gtest_hide_internal_symbols:BOOL=OFF
 
 //Value Computed by CMake
-kinpo_tests_project_BINARY_DIR:STATIC=/Users/aleksejgodenko/kinpo_sem_result/build
+kinpo_BINARY_DIR:STATIC=/Users/aleksejgodenko/kinpo_sem_result/build
 
 //Value Computed by CMake
-kinpo_tests_project_IS_TOP_LEVEL:STATIC=ON
+kinpo_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-kinpo_tests_project_SOURCE_DIR:STATIC=/Users/aleksejgodenko/kinpo_sem_result
+kinpo_SOURCE_DIR:STATIC=/Users/aleksejgodenko/kinpo_sem_result
 
 
 ########################

@@ -172,6 +172,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named kinpo
+
+# Build rule for target.
+kinpo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kinpo
+.PHONY : kinpo
+
+# fast build rule for target.
+kinpo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/build
+.PHONY : kinpo/fast
+
+#=============================================================================
 # Target rules for targets named kinpo_tests
 
 # Build rule for target.
@@ -236,11 +249,36 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+code/application.o: code/application.cpp.o
+.PHONY : code/application.o
+
+# target to build an object file
+code/application.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/application.cpp.o
+.PHONY : code/application.cpp.o
+
+code/application.i: code/application.cpp.i
+.PHONY : code/application.i
+
+# target to preprocess a source file
+code/application.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/application.cpp.i
+.PHONY : code/application.cpp.i
+
+code/application.s: code/application.cpp.s
+.PHONY : code/application.s
+
+# target to generate assembly for a file
+code/application.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/application.cpp.s
+.PHONY : code/application.cpp.s
+
 code/expression_solver.o: code/expression_solver.cpp.o
 .PHONY : code/expression_solver.o
 
 # target to build an object file
 code/expression_solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/expression_solver.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o
 .PHONY : code/expression_solver.cpp.o
 
@@ -249,6 +287,7 @@ code/expression_solver.i: code/expression_solver.cpp.i
 
 # target to preprocess a source file
 code/expression_solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/expression_solver.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.i
 .PHONY : code/expression_solver.cpp.i
 
@@ -257,14 +296,67 @@ code/expression_solver.s: code/expression_solver.cpp.s
 
 # target to generate assembly for a file
 code/expression_solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/expression_solver.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.s
 .PHONY : code/expression_solver.cpp.s
+
+code/file_service.o: code/file_service.cpp.o
+.PHONY : code/file_service.o
+
+# target to build an object file
+code/file_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/file_service.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o
+.PHONY : code/file_service.cpp.o
+
+code/file_service.i: code/file_service.cpp.i
+.PHONY : code/file_service.i
+
+# target to preprocess a source file
+code/file_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/file_service.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/file_service.cpp.i
+.PHONY : code/file_service.cpp.i
+
+code/file_service.s: code/file_service.cpp.s
+.PHONY : code/file_service.s
+
+# target to generate assembly for a file
+code/file_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/file_service.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/file_service.cpp.s
+.PHONY : code/file_service.cpp.s
+
+code/main.o: code/main.cpp.o
+.PHONY : code/main.o
+
+# target to build an object file
+code/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/main.cpp.o
+.PHONY : code/main.cpp.o
+
+code/main.i: code/main.cpp.i
+.PHONY : code/main.i
+
+# target to preprocess a source file
+code/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/main.cpp.i
+.PHONY : code/main.cpp.i
+
+code/main.s: code/main.cpp.s
+.PHONY : code/main.s
+
+# target to generate assembly for a file
+code/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/main.cpp.s
+.PHONY : code/main.cpp.s
 
 code/parser.o: code/parser.cpp.o
 .PHONY : code/parser.o
 
 # target to build an object file
 code/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/parser.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.o
 .PHONY : code/parser.cpp.o
 
@@ -273,6 +365,7 @@ code/parser.i: code/parser.cpp.i
 
 # target to preprocess a source file
 code/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/parser.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.i
 .PHONY : code/parser.cpp.i
 
@@ -281,14 +374,43 @@ code/parser.s: code/parser.cpp.s
 
 # target to generate assembly for a file
 code/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/parser.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/parser.cpp.s
 .PHONY : code/parser.cpp.s
+
+code/step_formatter.o: code/step_formatter.cpp.o
+.PHONY : code/step_formatter.o
+
+# target to build an object file
+code/step_formatter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/step_formatter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o
+.PHONY : code/step_formatter.cpp.o
+
+code/step_formatter.i: code/step_formatter.cpp.i
+.PHONY : code/step_formatter.i
+
+# target to preprocess a source file
+code/step_formatter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/step_formatter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.i
+.PHONY : code/step_formatter.cpp.i
+
+code/step_formatter.s: code/step_formatter.cpp.s
+.PHONY : code/step_formatter.s
+
+# target to generate assembly for a file
+code/step_formatter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/step_formatter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.s
+.PHONY : code/step_formatter.cpp.s
 
 code/tokenize.o: code/tokenize.cpp.o
 .PHONY : code/tokenize.o
 
 # target to build an object file
 code/tokenize.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/tokenize.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o
 .PHONY : code/tokenize.cpp.o
 
@@ -297,6 +419,7 @@ code/tokenize.i: code/tokenize.cpp.i
 
 # target to preprocess a source file
 code/tokenize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/tokenize.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.i
 .PHONY : code/tokenize.cpp.i
 
@@ -305,6 +428,7 @@ code/tokenize.s: code/tokenize.cpp.s
 
 # target to generate assembly for a file
 code/tokenize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo.dir/build.make CMakeFiles/kinpo.dir/code/tokenize.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kinpo_tests.dir/build.make CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.s
 .PHONY : code/tokenize.cpp.s
 
@@ -349,13 +473,26 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... kinpo"
 	@echo "... kinpo_tests"
+	@echo "... code/application.o"
+	@echo "... code/application.i"
+	@echo "... code/application.s"
 	@echo "... code/expression_solver.o"
 	@echo "... code/expression_solver.i"
 	@echo "... code/expression_solver.s"
+	@echo "... code/file_service.o"
+	@echo "... code/file_service.i"
+	@echo "... code/file_service.s"
+	@echo "... code/main.o"
+	@echo "... code/main.i"
+	@echo "... code/main.s"
 	@echo "... code/parser.o"
 	@echo "... code/parser.i"
 	@echo "... code/parser.s"
+	@echo "... code/step_formatter.o"
+	@echo "... code/step_formatter.i"
+	@echo "... code/step_formatter.s"
 	@echo "... code/tokenize.o"
 	@echo "... code/tokenize.i"
 	@echo "... code/tokenize.s"
