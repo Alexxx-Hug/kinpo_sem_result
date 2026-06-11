@@ -1,0 +1,1089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Расчет математического выражения: Класс Parser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Расчет математического выражения<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Программа пошагового вычисления арифметических выражений</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_parser.html','','class_parser-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс Parser</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для разбора выражения  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="parser_8h_source.html">parser.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac12664c7e7347c96de4e6927e78124a1" id="r_ac12664c7e7347c96de4e6927e78124a1"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac12664c7e7347c96de4e6927e78124a1">parse</a> (const std::vector&lt; <a class="el" href="struct_token.html">Token</a> &gt; &amp;tokens, <a class="el" href="class_error_set.html">ErrorSet</a> &amp;errors)</td></tr>
+<tr class="memdesc:ac12664c7e7347c96de4e6927e78124a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод для разбора токенов  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a110943202ab17d47ab3219be5c8867f7" id="r_a110943202ab17d47ab3219be5c8867f7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a110943202ab17d47ab3219be5c8867f7">validateTokens</a> (<a class="el" href="class_error_set.html">ErrorSet</a> &amp;errors) const</td></tr>
+<tr class="memdesc:a110943202ab17d47ab3219be5c8867f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить последовательность токенов на валидность  <br /></td></tr>
+<tr class="memitem:ae7f5ef0f6161865728c87f2bd8509941" id="r_ae7f5ef0f6161865728c87f2bd8509941"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ae7f5ef0f6161865728c87f2bd8509941">parseAddSubExpression</a> ()</td></tr>
+<tr class="memdesc:ae7f5ef0f6161865728c87f2bd8509941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разбор выражения для сложения и вычитания  <br /></td></tr>
+<tr class="memitem:ac84f6b0a7760a320d66a0144cce441f6" id="r_ac84f6b0a7760a320d66a0144cce441f6"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac84f6b0a7760a320d66a0144cce441f6">parseMulDivExpression</a> ()</td></tr>
+<tr class="memdesc:ac84f6b0a7760a320d66a0144cce441f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разбор выражения для умножения и деления  <br /></td></tr>
+<tr class="memitem:ae8af615b043f1c85544533a92d3c89ee" id="r_ae8af615b043f1c85544533a92d3c89ee"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ae8af615b043f1c85544533a92d3c89ee">parseFactor</a> ()</td></tr>
+<tr class="memdesc:ae8af615b043f1c85544533a92d3c89ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разбор основного элемента выражения  <br /></td></tr>
+<tr class="memitem:ab1c8a31c8f1912e08c19954516905923" id="r_ab1c8a31c8f1912e08c19954516905923"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ab1c8a31c8f1912e08c19954516905923">buildAddSubTree</a> (std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;positiveNodes, std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;negativeNodes)</td></tr>
+<tr class="memdesc:ab1c8a31c8f1912e08c19954516905923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Построить дерево для сложения/вычитания  <br /></td></tr>
+<tr class="memitem:ad055751aa5fec82eadfa5e96a05f733f" id="r_ad055751aa5fec82eadfa5e96a05f733f"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad055751aa5fec82eadfa5e96a05f733f">buildMulDivTree</a> (std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;numeratorNodes, std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;denominatorNodes)</td></tr>
+<tr class="memdesc:ad055751aa5fec82eadfa5e96a05f733f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Построить дерево для умножения/деления  <br /></td></tr>
+<tr class="memitem:a62fe7f0dde57a51455ce19d89c8a68d7" id="r_a62fe7f0dde57a51455ce19d89c8a68d7"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a62fe7f0dde57a51455ce19d89c8a68d7">createNumberNode</a> (long long value)</td></tr>
+<tr class="memdesc:a62fe7f0dde57a51455ce19d89c8a68d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создать узел для числа  <br /></td></tr>
+<tr class="memitem:abda9150d0442cb2bb3583fb33f2ffe21" id="r_abda9150d0442cb2bb3583fb33f2ffe21"><td class="memItemLeft"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *&#160;</td><td class="memItemRight"><a class="el" href="#abda9150d0442cb2bb3583fb33f2ffe21">createOperationNode</a> (<a class="el" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a> operation, <a class="el" href="struct_expression_node.html">ExpressionNode</a> *left, <a class="el" href="struct_expression_node.html">ExpressionNode</a> *right)</td></tr>
+<tr class="memdesc:abda9150d0442cb2bb3583fb33f2ffe21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создать узел для операции  <br /></td></tr>
+<tr class="memitem:a301c2fa34f675375271ec7919dbc5a7b" id="r_a301c2fa34f675375271ec7919dbc5a7b"><td class="memItemLeft">const <a class="el" href="struct_token.html">Token</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a> () const</td></tr>
+<tr class="memdesc:a301c2fa34f675375271ec7919dbc5a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить токен на текущей позиции  <br /></td></tr>
+<tr class="memitem:a13f5bfde1ba065f54f8f5f3eaebe1a46" id="r_a13f5bfde1ba065f54f8f5f3eaebe1a46"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">match</a> (<a class="el" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921">TokenType</a> type) const</td></tr>
+<tr class="memdesc:a13f5bfde1ba065f54f8f5f3eaebe1a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить, соответствует ли текущий токен типу  <br /></td></tr>
+<tr class="memitem:a9a4f4a9738ccb5440b54900490e91d6b" id="r_a9a4f4a9738ccb5440b54900490e91d6b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9a4f4a9738ccb5440b54900490e91d6b">matchOperation</a> (<a class="el" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a> operation) const</td></tr>
+<tr class="memdesc:a9a4f4a9738ccb5440b54900490e91d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить, является ли текущая операция требуемой  <br /></td></tr>
+<tr class="memitem:a800fab9c7ff8059514f0cb505aefc1ef" id="r_a800fab9c7ff8059514f0cb505aefc1ef"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a800fab9c7ff8059514f0cb505aefc1ef">isEnd</a> () const</td></tr>
+<tr class="memdesc:a800fab9c7ff8059514f0cb505aefc1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверить, достигном конец последовательности  <br /></td></tr>
+<tr class="memitem:a8b468a935388467d3cfe2f4b67cf04fc" id="r_a8b468a935388467d3cfe2f4b67cf04fc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a> ()</td></tr>
+<tr class="memdesc:a8b468a935388467d3cfe2f4b67cf04fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переместиться к следующему токену  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a247983c66efec033f5dab3d57a71baf9" id="r_a247983c66efec033f5dab3d57a71baf9"><td class="memItemLeft">std::vector&lt; <a class="el" href="struct_token.html">Token</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a></td></tr>
+<tr class="memitem:affc5209a9af182838b59d69099c75b93" id="r_affc5209a9af182838b59d69099c75b93"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#affc5209a9af182838b59d69099c75b93">position</a> = 0</td></tr>
+<tr class="memitem:a662101de0a2e329fb72c190076343da0" id="r_a662101de0a2e329fb72c190076343da0"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для разбора выражения </p>
+<p>Преобразует последовательность токенов в абстрактное синтактическое дерево. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8h_source.html">parser.h</a> строка <a class="el" href="parser_8h_source.html#l00016">16</a></p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ab1c8a31c8f1912e08c19954516905923" name="ab1c8a31c8f1912e08c19954516905923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1c8a31c8f1912e08c19954516905923">&#9670;&#160;</a></span>buildAddSubTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::buildAddSubTree </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>positiveNodes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>negativeNodes</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Построить дерево для сложения/вычитания </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">positiveNodes</td><td>Операнды для сложения </td></tr>
+    <tr><td class="paramname">negativeNodes</td><td>Операнды для вычитания </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Готовое дерево выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00266">266</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  269</span>  {</div>
+<div class="line"><span class="lineno">  270</span>    ExpressionNode* current = positiveNodes[0];</div>
+<div class="line"><span class="lineno">  271</span> </div>
+<div class="line"><span class="lineno">  272</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; positiveNodes.size(); ++i) {</div>
+<div class="line"><span class="lineno">  273</span>        current = <a class="code hl_function" href="#abda9150d0442cb2bb3583fb33f2ffe21">createOperationNode</a>(</div>
+<div class="line"><span class="lineno">  274</span>            <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047aec211f7c20af43e742bf2570c3cb84f9">OperationType::Add</a>,</div>
+<div class="line"><span class="lineno">  275</span>            current,</div>
+<div class="line"><span class="lineno">  276</span>            positiveNodes[i]</div>
+<div class="line"><span class="lineno">  277</span>        );</div>
+<div class="line"><span class="lineno">  278</span>    }</div>
+<div class="line"><span class="lineno">  279</span> </div>
+<div class="line"><span class="lineno">  280</span>    <span class="keywordflow">for</span> (ExpressionNode* negativeNode : negativeNodes) {</div>
+<div class="line"><span class="lineno">  281</span>        current = <a class="code hl_function" href="#abda9150d0442cb2bb3583fb33f2ffe21">createOperationNode</a>(</div>
+<div class="line"><span class="lineno">  282</span>            <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a1d9baf077ee87921f57a8fe42d510b65">OperationType::Subtract</a>,</div>
+<div class="line"><span class="lineno">  283</span>            current,</div>
+<div class="line"><span class="lineno">  284</span>            negativeNode</div>
+<div class="line"><span class="lineno">  285</span>        );</div>
+<div class="line"><span class="lineno">  286</span>    }</div>
+<div class="line"><span class="lineno">  287</span> </div>
+<div class="line"><span class="lineno">  288</span>    <span class="keywordflow">return</span> current;</div>
+<div class="line"><span class="lineno">  289</span>}</div>
+<div class="ttc" id="aclass_parser_html_abda9150d0442cb2bb3583fb33f2ffe21"><div class="ttname"><a href="#abda9150d0442cb2bb3583fb33f2ffe21">Parser::createOperationNode</a></div><div class="ttdeci">ExpressionNode * createOperationNode(OperationType operation, ExpressionNode *left, ExpressionNode *right)</div><div class="ttdoc">Создать узел для операции</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00034">parser.cpp:34</a></div></div>
+<div class="ttc" id="amodels_8h_html_a9a2c9c31d675b34f6ec35cc1ca89e047a1d9baf077ee87921f57a8fe42d510b65"><div class="ttname"><a href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a1d9baf077ee87921f57a8fe42d510b65">OperationType::Subtract</a></div><div class="ttdeci">@ Subtract</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00023">models.h:23</a></div></div>
+<div class="ttc" id="amodels_8h_html_a9a2c9c31d675b34f6ec35cc1ca89e047aec211f7c20af43e742bf2570c3cb84f9"><div class="ttname"><a href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047aec211f7c20af43e742bf2570c3cb84f9">OperationType::Add</a></div><div class="ttdeci">@ Add</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00022">models.h:22</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad055751aa5fec82eadfa5e96a05f733f" name="ad055751aa5fec82eadfa5e96a05f733f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad055751aa5fec82eadfa5e96a05f733f">&#9670;&#160;</a></span>buildMulDivTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::buildMulDivTree </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>numeratorNodes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_expression_node.html">ExpressionNode</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>denominatorNodes</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Построить дерево для умножения/деления </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numeratorNodes</td><td>Операнды для умножения </td></tr>
+    <tr><td class="paramname">denominatorNodes</td><td>Операнды для деления </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Готовое дерево выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00216">216</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>  {</div>
+<div class="line"><span class="lineno">  220</span>    ExpressionNode* current = numeratorNodes[0];</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; numeratorNodes.size(); ++i) {</div>
+<div class="line"><span class="lineno">  223</span>        current = <a class="code hl_function" href="#abda9150d0442cb2bb3583fb33f2ffe21">createOperationNode</a>(</div>
+<div class="line"><span class="lineno">  224</span>            <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047ae257376d913f3b53cbb4a9b19d770648">OperationType::Multiply</a>,</div>
+<div class="line"><span class="lineno">  225</span>            current,</div>
+<div class="line"><span class="lineno">  226</span>            numeratorNodes[i]</div>
+<div class="line"><span class="lineno">  227</span>        );</div>
+<div class="line"><span class="lineno">  228</span>    }</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>    <span class="keywordflow">for</span> (ExpressionNode* denominatorNode : denominatorNodes) {</div>
+<div class="line"><span class="lineno">  231</span>        current = <a class="code hl_function" href="#abda9150d0442cb2bb3583fb33f2ffe21">createOperationNode</a>(</div>
+<div class="line"><span class="lineno">  232</span>            <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a0b914e196182d02615487e9793ecff3d">OperationType::Divide</a>,</div>
+<div class="line"><span class="lineno">  233</span>            current,</div>
+<div class="line"><span class="lineno">  234</span>            denominatorNode</div>
+<div class="line"><span class="lineno">  235</span>        );</div>
+<div class="line"><span class="lineno">  236</span>    }</div>
+<div class="line"><span class="lineno">  237</span> </div>
+<div class="line"><span class="lineno">  238</span>    <span class="keywordflow">return</span> current;</div>
+<div class="line"><span class="lineno">  239</span>}</div>
+<div class="ttc" id="amodels_8h_html_a9a2c9c31d675b34f6ec35cc1ca89e047a0b914e196182d02615487e9793ecff3d"><div class="ttname"><a href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a0b914e196182d02615487e9793ecff3d">OperationType::Divide</a></div><div class="ttdeci">@ Divide</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00025">models.h:25</a></div></div>
+<div class="ttc" id="amodels_8h_html_a9a2c9c31d675b34f6ec35cc1ca89e047ae257376d913f3b53cbb4a9b19d770648"><div class="ttname"><a href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047ae257376d913f3b53cbb4a9b19d770648">OperationType::Multiply</a></div><div class="ttdeci">@ Multiply</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00024">models.h:24</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a62fe7f0dde57a51455ce19d89c8a68d7" name="a62fe7f0dde57a51455ce19d89c8a68d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fe7f0dde57a51455ce19d89c8a68d7">&#9670;&#160;</a></span>createNumberNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::createNumberNode </td>
+          <td>(</td>
+          <td class="paramtype">long long</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создать узел для числа </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Числовое значение </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Новый узел выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00029">29</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                        {</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a>.push_back(std::make_unique&lt;ExpressionNode&gt;(value));</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a>.back().get();</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+<div class="ttc" id="aclass_parser_html_a662101de0a2e329fb72c190076343da0"><div class="ttname"><a href="#a662101de0a2e329fb72c190076343da0">Parser::allocatedNodes</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; ExpressionNode &gt; &gt; allocatedNodes</div><div class="ttdef"><b>Определения</b> <a href="parser_8h_source.html#l00033">parser.h:33</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abda9150d0442cb2bb3583fb33f2ffe21" name="abda9150d0442cb2bb3583fb33f2ffe21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda9150d0442cb2bb3583fb33f2ffe21">&#9670;&#160;</a></span>createOperationNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::createOperationNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a></td>          <td class="paramname"><span class="paramname"><em>operation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_expression_node.html">ExpressionNode</a> *</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создать узел для операции </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operation</td><td>Тип операции </td></tr>
+    <tr><td class="paramname">left</td><td>Левый узел </td></tr>
+    <tr><td class="paramname">right</td><td>Правый узел </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Новый узел бинарной операции </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00034">34</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                                                                                                                {</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_variable" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a>.push_back(</div>
+<div class="line"><span class="lineno">   36</span>        std::make_unique&lt;ExpressionNode&gt;(operation, left, right)</div>
+<div class="line"><span class="lineno">   37</span>    );</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a>.back().get();</div>
+<div class="line"><span class="lineno">   40</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a301c2fa34f675375271ec7919dbc5a7b" name="a301c2fa34f675375271ec7919dbc5a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a301c2fa34f675375271ec7919dbc5a7b">&#9670;&#160;</a></span>currentToken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_token.html">Token</a> &amp; Parser::currentToken </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получить токен на текущей позиции </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Текущий токен </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00006">6</a></p>
+<div class="fragment"><div class="line"><span class="lineno">    6</span>                                        {</div>
+<div class="line"><span class="lineno">    7</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[<a class="code hl_variable" href="#affc5209a9af182838b59d69099c75b93">position</a>];</div>
+<div class="line"><span class="lineno">    8</span>}</div>
+<div class="ttc" id="aclass_parser_html_a247983c66efec033f5dab3d57a71baf9"><div class="ttname"><a href="#a247983c66efec033f5dab3d57a71baf9">Parser::tokens</a></div><div class="ttdeci">std::vector&lt; Token &gt; tokens</div><div class="ttdef"><b>Определения</b> <a href="parser_8h_source.html#l00030">parser.h:30</a></div></div>
+<div class="ttc" id="aclass_parser_html_affc5209a9af182838b59d69099c75b93"><div class="ttname"><a href="#affc5209a9af182838b59d69099c75b93">Parser::position</a></div><div class="ttdeci">size_t position</div><div class="ttdef"><b>Определения</b> <a href="parser_8h_source.html#l00031">parser.h:31</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a800fab9c7ff8059514f0cb505aefc1ef" name="a800fab9c7ff8059514f0cb505aefc1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800fab9c7ff8059514f0cb505aefc1ef">&#9670;&#160;</a></span>isEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parser::isEnd </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить, достигном конец последовательности </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true если последовательность окончена </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00019">19</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>                         {</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a87557f11575c0ad78e4e28abedc13b6e">TokenType::End</a>;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclass_parser_html_a301c2fa34f675375271ec7919dbc5a7b"><div class="ttname"><a href="#a301c2fa34f675375271ec7919dbc5a7b">Parser::currentToken</a></div><div class="ttdeci">const Token &amp; currentToken() const</div><div class="ttdoc">Получить токен на текущей позиции</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00006">parser.cpp:6</a></div></div>
+<div class="ttc" id="amodels_8h_html_aa520fbf142ba1e7e659590c07da31921a87557f11575c0ad78e4e28abedc13b6e"><div class="ttname"><a href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a87557f11575c0ad78e4e28abedc13b6e">TokenType::End</a></div><div class="ttdeci">@ End</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00015">models.h:15</a></div></div>
+<div class="ttc" id="astruct_token_html_a67919af9f3a80dc0b28a0ab1e6d5bf8a"><div class="ttname"><a href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">Token::type</a></div><div class="ttdeci">TokenType type</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00036">models.h:36</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a13f5bfde1ba065f54f8f5f3eaebe1a46" name="a13f5bfde1ba065f54f8f5f3eaebe1a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">&#9670;&#160;</a></span>match()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parser::match </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921">TokenType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить, соответствует ли текущий токен типу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Ожидаемый тип </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если типы совпадают </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00010">10</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>                                       {</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == type;</div>
+<div class="line"><span class="lineno">   12</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9a4f4a9738ccb5440b54900490e91d6b" name="a9a4f4a9738ccb5440b54900490e91d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4f4a9738ccb5440b54900490e91d6b">&#9670;&#160;</a></span>matchOperation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parser::matchOperation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a></td>          <td class="paramname"><span class="paramname"><em>operation</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить, является ли текущая операция требуемой </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operation</td><td>Ожидаемая операция </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если операции совпадают </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00014">14</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>                                                         {</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a> &amp;&amp;</div>
+<div class="line"><span class="lineno">   16</span>           <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a29b2e5560de8d12c3376db9c363465e4">operation</a> == operation;</div>
+<div class="line"><span class="lineno">   17</span>}</div>
+<div class="ttc" id="amodels_8h_html_aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31"><div class="ttname"><a href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a></div><div class="ttdeci">@ Operation</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00012">models.h:12</a></div></div>
+<div class="ttc" id="astruct_token_html_a29b2e5560de8d12c3376db9c363465e4"><div class="ttname"><a href="struct_token.html#a29b2e5560de8d12c3376db9c363465e4">Token::operation</a></div><div class="ttdeci">OperationType operation</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00039">models.h:39</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8b468a935388467d3cfe2f4b67cf04fc" name="a8b468a935388467d3cfe2f4b67cf04fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b468a935388467d3cfe2f4b67cf04fc">&#9670;&#160;</a></span>moveNext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::moveNext </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переместиться к следующему токену </p>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00023">23</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                      {</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#affc5209a9af182838b59d69099c75b93">position</a> + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size()) {</div>
+<div class="line"><span class="lineno">   25</span>        ++<a class="code hl_variable" href="#affc5209a9af182838b59d69099c75b93">position</a>;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac12664c7e7347c96de4e6927e78124a1" name="ac12664c7e7347c96de4e6927e78124a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12664c7e7347c96de4e6927e78124a1">&#9670;&#160;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::parse </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_token.html">Token</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_error_set.html">ErrorSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>errors</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основной метод для разбора токенов </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tokens</td><td>Последовательность токенов на входе </td></tr>
+    <tr><td class="paramname">errors</td><td>Набор ошибок об отклонениях </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Корень построенного синтаксического дерева </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00291">291</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  294</span>  {</div>
+<div class="line"><span class="lineno">  295</span>    <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a> = sourceTokens;</div>
+<div class="line"><span class="lineno">  296</span>    <a class="code hl_variable" href="#affc5209a9af182838b59d69099c75b93">position</a> = 0;</div>
+<div class="line"><span class="lineno">  297</span>    <a class="code hl_variable" href="#a662101de0a2e329fb72c190076343da0">allocatedNodes</a>.clear();</div>
+<div class="line"><span class="lineno">  298</span> </div>
+<div class="line"><span class="lineno">  299</span>    <a class="code hl_function" href="#a110943202ab17d47ab3219be5c8867f7">validateTokens</a>(errors);</div>
+<div class="line"><span class="lineno">  300</span> </div>
+<div class="line"><span class="lineno">  301</span>    <span class="keywordflow">if</span> (errors.<a class="code hl_function" href="class_error_set.html#acc88c0065db27c2dcb1bcf18300b7806">hasErrors</a>()) {</div>
+<div class="line"><span class="lineno">  302</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  303</span>    }</div>
+<div class="line"><span class="lineno">  304</span> </div>
+<div class="line"><span class="lineno">  305</span>    ExpressionNode* root = <a class="code hl_function" href="#ae7f5ef0f6161865728c87f2bd8509941">parseAddSubExpression</a>();</div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a800fab9c7ff8059514f0cb505aefc1ef">isEnd</a>()) {</div>
+<div class="line"><span class="lineno">  308</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">match</a>(<a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>)) {</div>
+<div class="line"><span class="lineno">  309</span>            errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  310</span>                <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa2a8f4f5309d2026222fd64a5f9ad542f">ErrorType::BracketBalanceError</a>,</div>
+<div class="line"><span class="lineno">  311</span>                <span class="stringliteral">&quot;Во входном выражении обнаружена закрывающая скобка без соответствующей открывающей. Проверьте порядок скобок.&quot;</span></div>
+<div class="line"><span class="lineno">  312</span>            );</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  315</span>        }</div>
+<div class="line"><span class="lineno">  316</span> </div>
+<div class="line"><span class="lineno">  317</span>        errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  318</span>            <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a>,</div>
+<div class="line"><span class="lineno">  319</span>            <span class="stringliteral">&quot;Во входном выражении обнаружена синтаксическая ошибка.&quot;</span></div>
+<div class="line"><span class="lineno">  320</span>        );</div>
+<div class="line"><span class="lineno">  321</span> </div>
+<div class="line"><span class="lineno">  322</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  323</span>    }</div>
+<div class="line"><span class="lineno">  324</span> </div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordflow">return</span> root;</div>
+<div class="line"><span class="lineno">  326</span>}</div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa2a8f4f5309d2026222fd64a5f9ad542f"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa2a8f4f5309d2026222fd64a5f9ad542f">ErrorType::BracketBalanceError</a></div><div class="ttdeci">@ BracketBalanceError</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00025">app_error.h:25</a></div></div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a></div><div class="ttdeci">@ SyntaxError</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00024">app_error.h:24</a></div></div>
+<div class="ttc" id="aclass_error_set_html_a5c5c81ed80d3b9e53e7bd3460f4ab58f"><div class="ttname"><a href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">ErrorSet::add</a></div><div class="ttdeci">void add(ErrorType type, const std::string &amp;message)</div><div class="ttdoc">Добавить новую ошибку в набор</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00087">app_error.h:87</a></div></div>
+<div class="ttc" id="aclass_error_set_html_acc88c0065db27c2dcb1bcf18300b7806"><div class="ttname"><a href="class_error_set.html#acc88c0065db27c2dcb1bcf18300b7806">ErrorSet::hasErrors</a></div><div class="ttdeci">bool hasErrors() const</div><div class="ttdoc">Проверить, есть ли ошибки</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00095">app_error.h:95</a></div></div>
+<div class="ttc" id="aclass_parser_html_a110943202ab17d47ab3219be5c8867f7"><div class="ttname"><a href="#a110943202ab17d47ab3219be5c8867f7">Parser::validateTokens</a></div><div class="ttdeci">void validateTokens(ErrorSet &amp;errors) const</div><div class="ttdoc">Проверить последовательность токенов на валидность</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00042">parser.cpp:42</a></div></div>
+<div class="ttc" id="aclass_parser_html_a13f5bfde1ba065f54f8f5f3eaebe1a46"><div class="ttname"><a href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">Parser::match</a></div><div class="ttdeci">bool match(TokenType type) const</div><div class="ttdoc">Проверить, соответствует ли текущий токен типу</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00010">parser.cpp:10</a></div></div>
+<div class="ttc" id="aclass_parser_html_a800fab9c7ff8059514f0cb505aefc1ef"><div class="ttname"><a href="#a800fab9c7ff8059514f0cb505aefc1ef">Parser::isEnd</a></div><div class="ttdeci">bool isEnd() const</div><div class="ttdoc">Проверить, достигном конец последовательности</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00019">parser.cpp:19</a></div></div>
+<div class="ttc" id="aclass_parser_html_ae7f5ef0f6161865728c87f2bd8509941"><div class="ttname"><a href="#ae7f5ef0f6161865728c87f2bd8509941">Parser::parseAddSubExpression</a></div><div class="ttdeci">ExpressionNode * parseAddSubExpression()</div><div class="ttdoc">Разбор выражения для сложения и вычитания</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00241">parser.cpp:241</a></div></div>
+<div class="ttc" id="amodels_8h_html_aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c"><div class="ttname"><a href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a></div><div class="ttdeci">@ RightBracket</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00014">models.h:14</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae7f5ef0f6161865728c87f2bd8509941" name="ae7f5ef0f6161865728c87f2bd8509941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f5ef0f6161865728c87f2bd8509941">&#9670;&#160;</a></span>parseAddSubExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::parseAddSubExpression </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Разбор выражения для сложения и вычитания </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Корень дерева выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00241">241</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span>                                              {</div>
+<div class="line"><span class="lineno">  242</span>    std::vector&lt;ExpressionNode*&gt; positiveNodes;</div>
+<div class="line"><span class="lineno">  243</span>    std::vector&lt;ExpressionNode*&gt; negativeNodes;</div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>    positiveNodes.push_back(<a class="code hl_function" href="#ac84f6b0a7760a320d66a0144cce441f6">parseMulDivExpression</a>());</div>
+<div class="line"><span class="lineno">  246</span> </div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">while</span> (</div>
+<div class="line"><span class="lineno">  248</span>        <a class="code hl_function" href="#a9a4f4a9738ccb5440b54900490e91d6b">matchOperation</a>(<a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047aec211f7c20af43e742bf2570c3cb84f9">OperationType::Add</a>) ||</div>
+<div class="line"><span class="lineno">  249</span>        <a class="code hl_function" href="#a9a4f4a9738ccb5440b54900490e91d6b">matchOperation</a>(<a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a1d9baf077ee87921f57a8fe42d510b65">OperationType::Subtract</a>)</div>
+<div class="line"><span class="lineno">  250</span>    ) {</div>
+<div class="line"><span class="lineno">  251</span>        <a class="code hl_enumeration" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a> operation = <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a29b2e5560de8d12c3376db9c363465e4">operation</a>;</div>
+<div class="line"><span class="lineno">  252</span>        <a class="code hl_function" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a>();</div>
+<div class="line"><span class="lineno">  253</span> </div>
+<div class="line"><span class="lineno">  254</span>        ExpressionNode* nextNode = <a class="code hl_function" href="#ac84f6b0a7760a320d66a0144cce441f6">parseMulDivExpression</a>();</div>
+<div class="line"><span class="lineno">  255</span> </div>
+<div class="line"><span class="lineno">  256</span>        <span class="keywordflow">if</span> (operation == <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047aec211f7c20af43e742bf2570c3cb84f9">OperationType::Add</a>) {</div>
+<div class="line"><span class="lineno">  257</span>            positiveNodes.push_back(nextNode);</div>
+<div class="line"><span class="lineno">  258</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  259</span>            negativeNodes.push_back(nextNode);</div>
+<div class="line"><span class="lineno">  260</span>        }</div>
+<div class="line"><span class="lineno">  261</span>    }</div>
+<div class="line"><span class="lineno">  262</span> </div>
+<div class="line"><span class="lineno">  263</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#ab1c8a31c8f1912e08c19954516905923">buildAddSubTree</a>(positiveNodes, negativeNodes);</div>
+<div class="line"><span class="lineno">  264</span>}</div>
+<div class="ttc" id="aclass_parser_html_a8b468a935388467d3cfe2f4b67cf04fc"><div class="ttname"><a href="#a8b468a935388467d3cfe2f4b67cf04fc">Parser::moveNext</a></div><div class="ttdeci">void moveNext()</div><div class="ttdoc">Переместиться к следующему токену</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00023">parser.cpp:23</a></div></div>
+<div class="ttc" id="aclass_parser_html_a9a4f4a9738ccb5440b54900490e91d6b"><div class="ttname"><a href="#a9a4f4a9738ccb5440b54900490e91d6b">Parser::matchOperation</a></div><div class="ttdeci">bool matchOperation(OperationType operation) const</div><div class="ttdoc">Проверить, является ли текущая операция требуемой</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00014">parser.cpp:14</a></div></div>
+<div class="ttc" id="aclass_parser_html_ab1c8a31c8f1912e08c19954516905923"><div class="ttname"><a href="#ab1c8a31c8f1912e08c19954516905923">Parser::buildAddSubTree</a></div><div class="ttdeci">ExpressionNode * buildAddSubTree(std::vector&lt; ExpressionNode * &gt; &amp;positiveNodes, std::vector&lt; ExpressionNode * &gt; &amp;negativeNodes)</div><div class="ttdoc">Построить дерево для сложения/вычитания</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00266">parser.cpp:266</a></div></div>
+<div class="ttc" id="aclass_parser_html_ac84f6b0a7760a320d66a0144cce441f6"><div class="ttname"><a href="#ac84f6b0a7760a320d66a0144cce441f6">Parser::parseMulDivExpression</a></div><div class="ttdeci">ExpressionNode * parseMulDivExpression()</div><div class="ttdoc">Разбор выражения для умножения и деления</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00191">parser.cpp:191</a></div></div>
+<div class="ttc" id="amodels_8h_html_a9a2c9c31d675b34f6ec35cc1ca89e047"><div class="ttname"><a href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a></div><div class="ttdeci">OperationType</div><div class="ttdoc">Тип арифметической операции</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00021">models.h:21</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae8af615b043f1c85544533a92d3c89ee" name="ae8af615b043f1c85544533a92d3c89ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8af615b043f1c85544533a92d3c89ee">&#9670;&#160;</a></span>parseFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::parseFactor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Разбор основного элемента выражения </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Узел выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00168">168</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  168</span>                                    {</div>
+<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">match</a>(<a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a>)) {</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> value = <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#ae0a5a74b662f6f883d4d3b0f803b398a">value</a>;</div>
+<div class="line"><span class="lineno">  171</span>        <a class="code hl_function" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a>();</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="#a62fe7f0dde57a51455ce19d89c8a68d7">createNumberNode</a>(value);</div>
+<div class="line"><span class="lineno">  174</span>    }</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">match</a>(<a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17">TokenType::LeftBracket</a>)) {</div>
+<div class="line"><span class="lineno">  177</span>        <a class="code hl_function" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a>();</div>
+<div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span>        ExpressionNode* node = <a class="code hl_function" href="#ae7f5ef0f6161865728c87f2bd8509941">parseAddSubExpression</a>();</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="#a13f5bfde1ba065f54f8f5f3eaebe1a46">match</a>(<a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>)) {</div>
+<div class="line"><span class="lineno">  182</span>            <a class="code hl_function" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a>();</div>
+<div class="line"><span class="lineno">  183</span>        }</div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>        <span class="keywordflow">return</span> node;</div>
+<div class="line"><span class="lineno">  186</span>    }</div>
+<div class="line"><span class="lineno">  187</span> </div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a62fe7f0dde57a51455ce19d89c8a68d7">createNumberNode</a>(1);</div>
+<div class="line"><span class="lineno">  189</span>}</div>
+<div class="ttc" id="aclass_parser_html_a62fe7f0dde57a51455ce19d89c8a68d7"><div class="ttname"><a href="#a62fe7f0dde57a51455ce19d89c8a68d7">Parser::createNumberNode</a></div><div class="ttdeci">ExpressionNode * createNumberNode(long long value)</div><div class="ttdoc">Создать узел для числа</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00029">parser.cpp:29</a></div></div>
+<div class="ttc" id="amodels_8h_html_aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17"><div class="ttname"><a href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17">TokenType::LeftBracket</a></div><div class="ttdeci">@ LeftBracket</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00013">models.h:13</a></div></div>
+<div class="ttc" id="amodels_8h_html_aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f"><div class="ttname"><a href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a></div><div class="ttdeci">@ Number</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00011">models.h:11</a></div></div>
+<div class="ttc" id="astruct_token_html_ae0a5a74b662f6f883d4d3b0f803b398a"><div class="ttname"><a href="struct_token.html#ae0a5a74b662f6f883d4d3b0f803b398a">Token::value</a></div><div class="ttdeci">long long value</div><div class="ttdef"><b>Определения</b> <a href="models_8h_source.html#l00038">models.h:38</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac84f6b0a7760a320d66a0144cce441f6" name="ac84f6b0a7760a320d66a0144cce441f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84f6b0a7760a320d66a0144cce441f6">&#9670;&#160;</a></span>parseMulDivExpression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_expression_node.html">ExpressionNode</a> * Parser::parseMulDivExpression </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Разбор выражения для умножения и деления </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Корень дерева выражения </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00191">191</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>                                              {</div>
+<div class="line"><span class="lineno">  192</span>    std::vector&lt;ExpressionNode*&gt; numeratorNodes;</div>
+<div class="line"><span class="lineno">  193</span>    std::vector&lt;ExpressionNode*&gt; denominatorNodes;</div>
+<div class="line"><span class="lineno">  194</span> </div>
+<div class="line"><span class="lineno">  195</span>    numeratorNodes.push_back(<a class="code hl_function" href="#ae8af615b043f1c85544533a92d3c89ee">parseFactor</a>());</div>
+<div class="line"><span class="lineno">  196</span> </div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">while</span> (</div>
+<div class="line"><span class="lineno">  198</span>        <a class="code hl_function" href="#a9a4f4a9738ccb5440b54900490e91d6b">matchOperation</a>(<a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047ae257376d913f3b53cbb4a9b19d770648">OperationType::Multiply</a>) ||</div>
+<div class="line"><span class="lineno">  199</span>        <a class="code hl_function" href="#a9a4f4a9738ccb5440b54900490e91d6b">matchOperation</a>(<a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a0b914e196182d02615487e9793ecff3d">OperationType::Divide</a>)</div>
+<div class="line"><span class="lineno">  200</span>    ) {</div>
+<div class="line"><span class="lineno">  201</span>        <a class="code hl_enumeration" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047">OperationType</a> operation = <a class="code hl_function" href="#a301c2fa34f675375271ec7919dbc5a7b">currentToken</a>().<a class="code hl_variable" href="struct_token.html#a29b2e5560de8d12c3376db9c363465e4">operation</a>;</div>
+<div class="line"><span class="lineno">  202</span>        <a class="code hl_function" href="#a8b468a935388467d3cfe2f4b67cf04fc">moveNext</a>();</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>        ExpressionNode* nextNode = <a class="code hl_function" href="#ae8af615b043f1c85544533a92d3c89ee">parseFactor</a>();</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">if</span> (operation == <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047ae257376d913f3b53cbb4a9b19d770648">OperationType::Multiply</a>) {</div>
+<div class="line"><span class="lineno">  207</span>            numeratorNodes.push_back(nextNode);</div>
+<div class="line"><span class="lineno">  208</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  209</span>            denominatorNodes.push_back(nextNode);</div>
+<div class="line"><span class="lineno">  210</span>        }</div>
+<div class="line"><span class="lineno">  211</span>    }</div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#ad055751aa5fec82eadfa5e96a05f733f">buildMulDivTree</a>(numeratorNodes, denominatorNodes);</div>
+<div class="line"><span class="lineno">  214</span>}</div>
+<div class="ttc" id="aclass_parser_html_ad055751aa5fec82eadfa5e96a05f733f"><div class="ttname"><a href="#ad055751aa5fec82eadfa5e96a05f733f">Parser::buildMulDivTree</a></div><div class="ttdeci">ExpressionNode * buildMulDivTree(std::vector&lt; ExpressionNode * &gt; &amp;numeratorNodes, std::vector&lt; ExpressionNode * &gt; &amp;denominatorNodes)</div><div class="ttdoc">Построить дерево для умножения/деления</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00216">parser.cpp:216</a></div></div>
+<div class="ttc" id="aclass_parser_html_ae8af615b043f1c85544533a92d3c89ee"><div class="ttname"><a href="#ae8af615b043f1c85544533a92d3c89ee">Parser::parseFactor</a></div><div class="ttdeci">ExpressionNode * parseFactor()</div><div class="ttdoc">Разбор основного элемента выражения</div><div class="ttdef"><b>Определения</b> <a href="parser_8cpp_source.html#l00168">parser.cpp:168</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a110943202ab17d47ab3219be5c8867f7" name="a110943202ab17d47ab3219be5c8867f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110943202ab17d47ab3219be5c8867f7">&#9670;&#160;</a></span>validateTokens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parser::validateTokens </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_error_set.html">ErrorSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>errors</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверить последовательность токенов на валидность </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errors</td><td>Набор ошибок </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8cpp_source.html">parser.cpp</a> строка <a class="el" href="parser_8cpp_source.html#l00042">42</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                  {</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.empty()) {</div>
+<div class="line"><span class="lineno">   44</span>        errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   45</span>            <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a>,</div>
+<div class="line"><span class="lineno">   46</span>            <span class="stringliteral">&quot;Во входном выражении обнаружена синтаксическая ошибка.&quot;</span></div>
+<div class="line"><span class="lineno">   47</span>        );</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordtype">int</span> balance = 0;</div>
+<div class="line"><span class="lineno">   51</span>    </div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size(); ++i) {</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keyword">const</span> Token&amp; current = <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i];</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a87557f11575c0ad78e4e28abedc13b6e">TokenType::End</a>) {</div>
+<div class="line"><span class="lineno">   55</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   56</span>        }</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17">TokenType::LeftBracket</a>) {</div>
+<div class="line"><span class="lineno">   58</span>            ++balance;</div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>) {</div>
+<div class="line"><span class="lineno">   60</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   61</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8c2777af3b69dc28b6a656ad538435a5">ErrorType::EmptyBrackets</a>,</div>
+<div class="line"><span class="lineno">   62</span>                    <span class="stringliteral">&quot;Во входном выражении обнаружены пустые скобки. Между скобками должно находиться выражение.&quot;</span></div>
+<div class="line"><span class="lineno">   63</span>                );</div>
+<div class="line"><span class="lineno">   64</span>            }</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a>) {</div>
+<div class="line"><span class="lineno">   66</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   67</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54">ErrorType::MissingOperand</a>,</div>
+<div class="line"><span class="lineno">   68</span>                    <span class="stringliteral">&quot;Подвыражение в скобках записано некорректно. После открывающей скобки должен следовать операнд.&quot;</span></div>
+<div class="line"><span class="lineno">   69</span>                );</div>
+<div class="line"><span class="lineno">   70</span>            }</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">if</span> (i &gt; 0 &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i - 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a>) {</div>
+<div class="line"><span class="lineno">   72</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   73</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a>,</div>
+<div class="line"><span class="lineno">   74</span>                    <span class="stringliteral">&quot;Между числом и открывающей скобкой отсутствует знак операции. Проверьте запись выражения.&quot;</span></div>
+<div class="line"><span class="lineno">   75</span>                );</div>
+<div class="line"><span class="lineno">   76</span>            }</div>
+<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">if</span> (i &gt; 0 &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i - 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>) {</div>
+<div class="line"><span class="lineno">   78</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   79</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a>,</div>
+<div class="line"><span class="lineno">   80</span>                    <span class="stringliteral">&quot;Между соседними подвыражениями отсутствует знак операции. Проверьте запись выражения.&quot;</span></div>
+<div class="line"><span class="lineno">   81</span>                );</div>
+<div class="line"><span class="lineno">   82</span>            }</div>
+<div class="line"><span class="lineno">   83</span>        }</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>) {</div>
+<div class="line"><span class="lineno">   85</span>            --balance;</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (balance &lt; 0) {</div>
+<div class="line"><span class="lineno">   87</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   88</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa2a8f4f5309d2026222fd64a5f9ad542f">ErrorType::BracketBalanceError</a>,</div>
+<div class="line"><span class="lineno">   89</span>                    <span class="stringliteral">&quot;Во входном выражении обнаружена закрывающая скобка без соответствующей открывающей. Проверьте порядок скобок.&quot;</span></div>
+<div class="line"><span class="lineno">   90</span>                );</div>
+<div class="line"><span class="lineno">   91</span>            }</div>
+<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">if</span> (i &gt; 0 &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i - 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a>) {</div>
+<div class="line"><span class="lineno">   93</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">   94</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54">ErrorType::MissingOperand</a>,</div>
+<div class="line"><span class="lineno">   95</span>                    <span class="stringliteral">&quot;Подвыражение в скобках записано некорректно. Перед закрывающей скобкой не может находиться знак операции.&quot;</span></div>
+<div class="line"><span class="lineno">   96</span>                );</div>
+<div class="line"><span class="lineno">   97</span>            }</div>
+<div class="line"><span class="lineno">   98</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a>) {</div>
+<div class="line"><span class="lineno">   99</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  100</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a>,</div>
+<div class="line"><span class="lineno">  101</span>                    <span class="stringliteral">&quot;Между закрывающей скобкой и числом отсутствует знак операции. Проверьте запись выражения.&quot;</span></div>
+<div class="line"><span class="lineno">  102</span>                );</div>
+<div class="line"><span class="lineno">  103</span>            }</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17">TokenType::LeftBracket</a>) {</div>
+<div class="line"><span class="lineno">  105</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  106</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a>,</div>
+<div class="line"><span class="lineno">  107</span>                    <span class="stringliteral">&quot;Между соседними подвыражениями отсутствует знак операции. Проверьте запись выражения.&quot;</span></div>
+<div class="line"><span class="lineno">  108</span>                );</div>
+<div class="line"><span class="lineno">  109</span>            }</div>
+<div class="line"><span class="lineno">  110</span>        }</div>
+<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a>) {</div>
+<div class="line"><span class="lineno">  112</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921ab2ee912b91d69b435159c7c3f6df7f5f">TokenType::Number</a>) {</div>
+<div class="line"><span class="lineno">  113</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  114</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a>,</div>
+<div class="line"><span class="lineno">  115</span>                    <span class="stringliteral">&quot;Число записано некорректно. Цифры одного числа не должны разделяться пробелами.&quot;</span></div>
+<div class="line"><span class="lineno">  116</span>                );</div>
+<div class="line"><span class="lineno">  117</span>            }</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a481c09f513474b2d31ba5c2992947b17">TokenType::LeftBracket</a>) {</div>
+<div class="line"><span class="lineno">  120</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  121</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a>,</div>
+<div class="line"><span class="lineno">  122</span>                    <span class="stringliteral">&quot;Между числом и открывающей скобкой отсутствует знак операции. Проверьте запись выражения.&quot;</span></div>
+<div class="line"><span class="lineno">  123</span>                );</div>
+<div class="line"><span class="lineno">  124</span>            }</div>
+<div class="line"><span class="lineno">  125</span>        }</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a67919af9f3a80dc0b28a0ab1e6d5bf8a">type</a> == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a>) {</div>
+<div class="line"><span class="lineno">  127</span>            <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><span class="lineno">  128</span>                <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="struct_token.html#a29b2e5560de8d12c3376db9c363465e4">operation</a> == <a class="code hl_enumvalue" href="models_8h.html#a9a2c9c31d675b34f6ec35cc1ca89e047a1d9baf077ee87921f57a8fe42d510b65">OperationType::Subtract</a>) {</div>
+<div class="line"><span class="lineno">  129</span>                    errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  130</span>                        <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8bd72a7e6394cf66d9a3553b1a84c6cd">ErrorType::NegativeInputNumber</a>,</div>
+<div class="line"><span class="lineno">  131</span>                        <span class="stringliteral">&quot;Во входном выражении обнаружено отрицательное число. Допустимы только положительные целые числа.&quot;</span></div>
+<div class="line"><span class="lineno">  132</span>                    );</div>
+<div class="line"><span class="lineno">  133</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  134</span>                    errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  135</span>                        <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a>,</div>
+<div class="line"><span class="lineno">  136</span>                        <span class="stringliteral">&quot;Во входном выражении обнаружена синтаксическая ошибка. Выражение не может начинаться со знака операции.&quot;</span></div>
+<div class="line"><span class="lineno">  137</span>                    );</div>
+<div class="line"><span class="lineno">  138</span>                }</div>
+<div class="line"><span class="lineno">  139</span>            }</div>
+<div class="line"><span class="lineno">  140</span>            <span class="keywordflow">if</span> (i + 1 &gt;= <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() || <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a87557f11575c0ad78e4e28abedc13b6e">TokenType::End</a>) {</div>
+<div class="line"><span class="lineno">  141</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  142</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54">ErrorType::MissingOperand</a>,</div>
+<div class="line"><span class="lineno">  143</span>                    <span class="stringliteral">&quot;Выражение не может заканчиваться знаком операции. После операции должен идти операнд.&quot;</span></div>
+<div class="line"><span class="lineno">  144</span>                );</div>
+<div class="line"><span class="lineno">  145</span>            }</div>
+<div class="line"><span class="lineno">  146</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a2a78ed76450c3cb42320882b3e055b31">TokenType::Operation</a>) {</div>
+<div class="line"><span class="lineno">  147</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  148</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aaece592fd242f4ba674cc9da539a625a7">ErrorType::SyntaxError</a>,</div>
+<div class="line"><span class="lineno">  149</span>                    <span class="stringliteral">&quot;Во входном выражении обнаружена синтаксическая ошибка. В записи не может идти две операции подряд.&quot;</span></div>
+<div class="line"><span class="lineno">  150</span>                );</div>
+<div class="line"><span class="lineno">  151</span>            }</div>
+<div class="line"><span class="lineno">  152</span>            <span class="keywordflow">if</span> (i + 1 &lt; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>.size() &amp;&amp; <a class="code hl_variable" href="#a247983c66efec033f5dab3d57a71baf9">tokens</a>[i + 1].type == <a class="code hl_enumvalue" href="models_8h.html#aa520fbf142ba1e7e659590c07da31921a455364d8991395f71ef9ccc5cc449e5c">TokenType::RightBracket</a>) {</div>
+<div class="line"><span class="lineno">  153</span>                errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  154</span>                    <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54">ErrorType::MissingOperand</a>,</div>
+<div class="line"><span class="lineno">  155</span>                    <span class="stringliteral">&quot;Подвыражение в скобках записано некорректно. Перед закрывающей скобкой не может находиться знак операции.&quot;</span></div>
+<div class="line"><span class="lineno">  156</span>                );</div>
+<div class="line"><span class="lineno">  157</span>            }</div>
+<div class="line"><span class="lineno">  158</span>        }</div>
+<div class="line"><span class="lineno">  159</span>    }</div>
+<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">if</span> (balance != 0) {</div>
+<div class="line"><span class="lineno">  161</span>        errors.<a class="code hl_function" href="class_error_set.html#a5c5c81ed80d3b9e53e7bd3460f4ab58f">add</a>(</div>
+<div class="line"><span class="lineno">  162</span>            <a class="code hl_enumvalue" href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa2a8f4f5309d2026222fd64a5f9ad542f">ErrorType::BracketBalanceError</a>,</div>
+<div class="line"><span class="lineno">  163</span>            <span class="stringliteral">&quot;Во входном выражении нарушен баланс скобок. Количество открывающих и закрывающих скобок должно совпадать.&quot;</span></div>
+<div class="line"><span class="lineno">  164</span>        );</div>
+<div class="line"><span class="lineno">  165</span>    }</div>
+<div class="line"><span class="lineno">  166</span>}</div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa7c16dcd0c5cf06aca724683b12f21b15">ErrorType::MissingOperation</a></div><div class="ttdeci">@ MissingOperation</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00027">app_error.h:27</a></div></div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa8bd72a7e6394cf66d9a3553b1a84c6cd"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8bd72a7e6394cf66d9a3553b1a84c6cd">ErrorType::NegativeInputNumber</a></div><div class="ttdeci">@ NegativeInputNumber</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00018">app_error.h:18</a></div></div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa8c2777af3b69dc28b6a656ad538435a5"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8c2777af3b69dc28b6a656ad538435a5">ErrorType::EmptyBrackets</a></div><div class="ttdeci">@ EmptyBrackets</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00026">app_error.h:26</a></div></div>
+<div class="ttc" id="aapp__error_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54"><div class="ttname"><a href="app__error_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aae5c953bd0f6c120ef77349050dadfa54">ErrorType::MissingOperand</a></div><div class="ttdeci">@ MissingOperand</div><div class="ttdef"><b>Определения</b> <a href="app__error_8h_source.html#l00028">app_error.h:28</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="a662101de0a2e329fb72c190076343da0" name="a662101de0a2e329fb72c190076343da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662101de0a2e329fb72c190076343da0">&#9670;&#160;</a></span>allocatedNodes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="struct_expression_node.html">ExpressionNode</a>&gt; &gt; Parser::allocatedNodes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8h_source.html">parser.h</a> строка <a class="el" href="parser_8h_source.html#l00033">33</a></p>
+
+</div>
+</div>
+<a id="affc5209a9af182838b59d69099c75b93" name="affc5209a9af182838b59d69099c75b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affc5209a9af182838b59d69099c75b93">&#9670;&#160;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Parser::position = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8h_source.html">parser.h</a> строка <a class="el" href="parser_8h_source.html#l00031">31</a></p>
+
+</div>
+</div>
+<a id="a247983c66efec033f5dab3d57a71baf9" name="a247983c66efec033f5dab3d57a71baf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247983c66efec033f5dab3d57a71baf9">&#9670;&#160;</a></span>tokens</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_token.html">Token</a>&gt; Parser::tokens</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="parser_8h_source.html">parser.h</a> строка <a class="el" href="parser_8h_source.html#l00030">30</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>classes/<a class="el" href="parser_8h_source.html">parser.h</a></li>
+<li>code/<a class="el" href="parser_8cpp_source.html">parser.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_parser.html">Parser</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
