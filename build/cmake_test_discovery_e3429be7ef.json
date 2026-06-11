@@ -1,5 +1,5 @@
 {
-  "tests": 88,
+  "tests": 103,
   "name": "AllTests",
   "testsuites": [
     {
@@ -463,6 +463,87 @@
           "name": "ClearsStepsBeforeNextSolve",
           "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
           "line": 2370
+        }
+      ]
+    },
+    {
+      "name": "ExpressionEvaluateTest",
+      "tests": 15,
+      "testsuite": [
+        {
+          "name": "ReportsErrorForNullNode",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2406
+        },
+        {
+          "name": "ReturnsNumberNodeValue",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2423
+        },
+        {
+          "name": "EvaluatesAdditionNode",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2439
+        },
+        {
+          "name": "EvaluatesSubtractionNode",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2464
+        },
+        {
+          "name": "EvaluatesMultiplicationNode",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2492
+        },
+        {
+          "name": "EvaluatesDivisionNode",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2520
+        },
+        {
+          "name": "EvaluatesMultiplicationBeforeAddition",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2548
+        },
+        {
+          "name": "EvaluatesBracketSubtreeFirst",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2583
+        },
+        {
+          "name": "EvaluatesSafeSubtractionTree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2615
+        },
+        {
+          "name": "StopsOnNegativeResultInRightSubtree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2647
+        },
+        {
+          "name": "StopsOnFractionResultInLeftSubtree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2679
+        },
+        {
+          "name": "StopsOnDivisionByZeroInRightSubtree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2710
+        },
+        {
+          "name": "EvaluatesSeveralSuccessfulOperations",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2741
+        },
+        {
+          "name": "KeepsLeftSubtreeStepBeforeRightError",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2781
+        },
+        {
+          "name": "EvaluatesComplexCorrectTree",
+          "file": "\/Users\/aleksejgodenko\/kinpo_sem_result\/tests\/tests.cpp",
+          "line": 2823
         }
       ]
     }
