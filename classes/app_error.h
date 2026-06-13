@@ -92,8 +92,8 @@ public:
 
 private:
 
-    ErrorType type;      ///< Тип ошибки.
-    std::string message; ///< Текст ошибки.
+    ErrorType type;      // Тип ошибки.
+    std::string message; // Текст ошибки.
 };
 
 /**
@@ -145,7 +145,7 @@ public:
 
 private:
 
-    std::set<AppError> errors; ///< Набор зарегистрированных ошибок.
+    std::set<AppError> errors; // Набор зарегистрированных ошибок.
 };
 
 #endif
