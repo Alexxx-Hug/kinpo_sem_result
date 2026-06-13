@@ -1,118 +1,151 @@
 #ifndef APP_ERROR_H
 #define APP_ERROR_H
 
+#include <set>
 #include <string>
-#include <vector>
 
 /**
- * @brief Тип ошибки в приложении
+ * @brief Тип ошибки, возникшей во время работы программы.
  */
 enum class ErrorType {
-    FileOpenError,       // Ошибка открытия файла
-    FileWriteError,      // Ошибка записи в файл
+    FileOpenError,
+    FileWriteError,
 
-    EmptyInput,          // Пустые данные
-    OnlySpacesInput,     // Выражение содержит только пробелы
-    InvalidSymbol,       // Недопустимый символ
-    NotIntegerNumber,    // Число не является целым
-    NegativeInputNumber, // Отрицательное число на входе
-    ZeroOperand,         // Нуль как операнд
-    NumberOutOfRange,    // Число выходит за пределы
-    ExpressionTooLong,   // Выражение слишком длинное
+    EmptyInput,
+    OnlySpacesInput,
+    InvalidSymbol,
+    NotIntegerNumber,
+    NegativeInputNumber,
+    ZeroOperand,
+    NumberOutOfRange,
+    ExpressionTooLong,
 
-    UnknownOperation,    // Неизвестная операция
-    SyntaxError,         // Ошибка синтаксиса
-    BracketBalanceError, // Несовпадение скобок
-    EmptyBrackets,       // Пустые скобки
-    MissingOperation,    // Отсутствует операция
-    MissingOperand,      // Отсутствует операнд
+    SyntaxError,
+    BracketBalanceError,
+    EmptyBrackets,
+    MissingOperation,
+    MissingOperand,
 
-    DivisionByZero,      // Деление на ноль
-    NegativeResult,      // Отрицательный результат
-    FractionResult,      // Не целочисленный результат
-    IntermediateOverflow, // Промежуточные вычисления превысили порог
+    DivisionByZero,
+    NegativeResult,
+    FractionResult,
+    IntermediateOverflow,
+    UnknownOperation,
 
-    InvalidArgumentCount, // Неверное количество аргументов командной строки
-    UnknownError         // Неизвестная ошибка
+    InvalidArgumentCount,
+    UnknownError
 };
 
 /**
- * @brief Класс для представления одной ошибки
- * 
- * Хранит тип ошибки и дескриптивное сообщение.
+ * @brief Представляет одну ошибку приложения.
+ *
+ * Хранит тип ошибки и её текстовое описание.
  */
 class AppError {
 public:
-    /**
-     * @brief Конструктор ошибки
-     * @param errorType Тип ошибки
-     * @param errorMessage Описание ошибки
-     */
-    AppError(ErrorType errorType, const std::string& errorMessage)
-        : type(errorType), message(errorMessage) {}
 
     /**
-     * @brief Получить тип ошибки
-     * @return Настоящий тип ошибки
+     * @brief Создаёт объект ошибки.
+     *
+     * @param errorType Тип ошибки.
+     * @param errorMessage Текстовое описание ошибки.
+     */
+    AppError(
+        ErrorType errorType,
+        const std::string& errorMessage
+    )
+        : type(errorType),
+          message(errorMessage) {
+    }
+
+    /**
+     * @brief Возвращает тип ошибки.
+     *
+     * @return Тип ошибки.
      */
     ErrorType getType() const {
         return type;
     }
 
     /**
-     * @brief Получить текст ошибки
-     * @return Описание ошибки
+     * @brief Возвращает сообщение об ошибке.
+     *
+     * @return Текст ошибки.
      */
     std::string getMessage() const {
         return message;
     }
 
+    /**
+     * @brief Сравнивает ошибки для хранения в std::set.
+     *
+     * @param other Объект для сравнения.
+     * @return true, если текущая ошибка меньше другой.
+     */
+    bool operator<(const AppError& other) const {
+        if (type != other.type) {
+            return type < other.type;
+        }
+
+        return message < other.message;
+    }
+
 private:
-    ErrorType type;
-    std::string message;
+
+    ErrorType type;      ///< Тип ошибки.
+    std::string message; ///< Текст ошибки.
 };
 
 /**
- * @brief Класс для управления набором ошибок
- * 
- * Обеспечивает сбор и отчётность ошибок, группировку нескольких ошибок.
+ * @brief Контейнер для хранения ошибок приложения.
+ *
+ * Использует std::set для исключения дубликатов
+ * и обеспечения стабильного порядка хранения.
  */
 class ErrorSet {
 public:
+
     /**
-     * @brief Добавить новую ошибку в набор
-     * @param type Тип ошибки
-     * @param message Описание ошибки
+     * @brief Добавляет ошибку в набор.
+     *
+     * @param type Тип ошибки.
+     * @param message Текст ошибки.
      */
-    void add(ErrorType type, const std::string& message) {
-        errors.emplace_back(type, message);
+    void add(
+        ErrorType type,
+        const std::string& message
+    ) {
+        errors.insert(AppError(type, message));
     }
 
     /**
-     * @brief Проверить, есть ли ошибки
-     * @return true если набор не пуст, false иначе
+     * @brief Проверяет наличие ошибок.
+     *
+     * @return true, если набор не пуст.
      */
     bool hasErrors() const {
         return !errors.empty();
     }
 
     /**
-     * @brief Получить вектор всех ошибок
-     * @return Константная ссылка на вектор ошибок
+     * @brief Возвращает набор ошибок.
+     *
+     * @return Константная ссылка на множество ошибок.
      */
-    const std::vector<AppError>& getErrors() const {
+    const std::set<AppError>& getErrors() const {
         return errors;
     }
 
     /**
-     * @brief Очистить все ошибки
+     * @brief Удаляет все ошибки из набора.
      */
     void clear() {
         errors.clear();
     }
 
 private:
-    std::vector<AppError> errors;
+
+    std::set<AppError> errors; ///< Набор зарегистрированных ошибок.
 };
 
 #endif
