@@ -86,113 +86,18 @@ CMakeFiles/kinpo.dir/code/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/main.cpp -o CMakeFiles/kinpo.dir/code/main.cpp.s
 
-CMakeFiles/kinpo.dir/code/application.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/application.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/application.cpp
-CMakeFiles/kinpo.dir/code/application.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kinpo.dir/code/application.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/application.cpp.o -MF CMakeFiles/kinpo.dir/code/application.cpp.o.d -o CMakeFiles/kinpo.dir/code/application.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/application.cpp
-
-CMakeFiles/kinpo.dir/code/application.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/application.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/application.cpp > CMakeFiles/kinpo.dir/code/application.cpp.i
-
-CMakeFiles/kinpo.dir/code/application.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/application.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/application.cpp -o CMakeFiles/kinpo.dir/code/application.cpp.s
-
-CMakeFiles/kinpo.dir/code/file_service.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/file_service.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp
-CMakeFiles/kinpo.dir/code/file_service.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kinpo.dir/code/file_service.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/file_service.cpp.o -MF CMakeFiles/kinpo.dir/code/file_service.cpp.o.d -o CMakeFiles/kinpo.dir/code/file_service.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp
-
-CMakeFiles/kinpo.dir/code/file_service.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/file_service.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp > CMakeFiles/kinpo.dir/code/file_service.cpp.i
-
-CMakeFiles/kinpo.dir/code/file_service.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/file_service.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp -o CMakeFiles/kinpo.dir/code/file_service.cpp.s
-
-CMakeFiles/kinpo.dir/code/tokenize.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/tokenize.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp
-CMakeFiles/kinpo.dir/code/tokenize.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kinpo.dir/code/tokenize.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/tokenize.cpp.o -MF CMakeFiles/kinpo.dir/code/tokenize.cpp.o.d -o CMakeFiles/kinpo.dir/code/tokenize.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp
-
-CMakeFiles/kinpo.dir/code/tokenize.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/tokenize.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp > CMakeFiles/kinpo.dir/code/tokenize.cpp.i
-
-CMakeFiles/kinpo.dir/code/tokenize.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/tokenize.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp -o CMakeFiles/kinpo.dir/code/tokenize.cpp.s
-
-CMakeFiles/kinpo.dir/code/parser.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/parser.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp
-CMakeFiles/kinpo.dir/code/parser.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kinpo.dir/code/parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/parser.cpp.o -MF CMakeFiles/kinpo.dir/code/parser.cpp.o.d -o CMakeFiles/kinpo.dir/code/parser.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp
-
-CMakeFiles/kinpo.dir/code/parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp > CMakeFiles/kinpo.dir/code/parser.cpp.i
-
-CMakeFiles/kinpo.dir/code/parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp -o CMakeFiles/kinpo.dir/code/parser.cpp.s
-
-CMakeFiles/kinpo.dir/code/expression_solver.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/expression_solver.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp
-CMakeFiles/kinpo.dir/code/expression_solver.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kinpo.dir/code/expression_solver.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/expression_solver.cpp.o -MF CMakeFiles/kinpo.dir/code/expression_solver.cpp.o.d -o CMakeFiles/kinpo.dir/code/expression_solver.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp
-
-CMakeFiles/kinpo.dir/code/expression_solver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/expression_solver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp > CMakeFiles/kinpo.dir/code/expression_solver.cpp.i
-
-CMakeFiles/kinpo.dir/code/expression_solver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/expression_solver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp -o CMakeFiles/kinpo.dir/code/expression_solver.cpp.s
-
-CMakeFiles/kinpo.dir/code/step_formatter.cpp.o: CMakeFiles/kinpo.dir/flags.make
-CMakeFiles/kinpo.dir/code/step_formatter.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp
-CMakeFiles/kinpo.dir/code/step_formatter.cpp.o: CMakeFiles/kinpo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kinpo.dir/code/step_formatter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo.dir/code/step_formatter.cpp.o -MF CMakeFiles/kinpo.dir/code/step_formatter.cpp.o.d -o CMakeFiles/kinpo.dir/code/step_formatter.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp
-
-CMakeFiles/kinpo.dir/code/step_formatter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo.dir/code/step_formatter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp > CMakeFiles/kinpo.dir/code/step_formatter.cpp.i
-
-CMakeFiles/kinpo.dir/code/step_formatter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo.dir/code/step_formatter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp -o CMakeFiles/kinpo.dir/code/step_formatter.cpp.s
-
 # Object files for target kinpo
 kinpo_OBJECTS = \
-"CMakeFiles/kinpo.dir/code/main.cpp.o" \
-"CMakeFiles/kinpo.dir/code/application.cpp.o" \
-"CMakeFiles/kinpo.dir/code/file_service.cpp.o" \
-"CMakeFiles/kinpo.dir/code/tokenize.cpp.o" \
-"CMakeFiles/kinpo.dir/code/parser.cpp.o" \
-"CMakeFiles/kinpo.dir/code/expression_solver.cpp.o" \
-"CMakeFiles/kinpo.dir/code/step_formatter.cpp.o"
+"CMakeFiles/kinpo.dir/code/main.cpp.o"
 
 # External object files for target kinpo
 kinpo_EXTERNAL_OBJECTS =
 
 kinpo: CMakeFiles/kinpo.dir/code/main.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/application.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/file_service.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/tokenize.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/parser.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/expression_solver.cpp.o
-kinpo: CMakeFiles/kinpo.dir/code/step_formatter.cpp.o
 kinpo: CMakeFiles/kinpo.dir/build.make
+kinpo: libkinpo_lib.dylib
 kinpo: CMakeFiles/kinpo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable kinpo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable kinpo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kinpo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

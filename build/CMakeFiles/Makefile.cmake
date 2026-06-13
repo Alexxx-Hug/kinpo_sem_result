@@ -179,6 +179,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/kinpo_lib.dir/DependInfo.cmake"
   "CMakeFiles/kinpo.dir/DependInfo.cmake"
   "CMakeFiles/kinpo_tests.dir/DependInfo.cmake"
   "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"

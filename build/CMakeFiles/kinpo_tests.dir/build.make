@@ -86,99 +86,20 @@ CMakeFiles/kinpo_tests.dir/tests/tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/tests/tests.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/tests/tests.cpp -o CMakeFiles/kinpo_tests.dir/tests/tests.cpp.s
 
-CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o: CMakeFiles/kinpo_tests.dir/flags.make
-CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp
-CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o: CMakeFiles/kinpo_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o -MF CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o.d -o CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp
-
-CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp > CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.i
-
-CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/tokenize.cpp -o CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.s
-
-CMakeFiles/kinpo_tests.dir/code/parser.cpp.o: CMakeFiles/kinpo_tests.dir/flags.make
-CMakeFiles/kinpo_tests.dir/code/parser.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp
-CMakeFiles/kinpo_tests.dir/code/parser.cpp.o: CMakeFiles/kinpo_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kinpo_tests.dir/code/parser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo_tests.dir/code/parser.cpp.o -MF CMakeFiles/kinpo_tests.dir/code/parser.cpp.o.d -o CMakeFiles/kinpo_tests.dir/code/parser.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp
-
-CMakeFiles/kinpo_tests.dir/code/parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo_tests.dir/code/parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp > CMakeFiles/kinpo_tests.dir/code/parser.cpp.i
-
-CMakeFiles/kinpo_tests.dir/code/parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/code/parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/parser.cpp -o CMakeFiles/kinpo_tests.dir/code/parser.cpp.s
-
-CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o: CMakeFiles/kinpo_tests.dir/flags.make
-CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp
-CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o: CMakeFiles/kinpo_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o -MF CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o.d -o CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp
-
-CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp > CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.i
-
-CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/expression_solver.cpp -o CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.s
-
-CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o: CMakeFiles/kinpo_tests.dir/flags.make
-CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp
-CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o: CMakeFiles/kinpo_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o -MF CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o.d -o CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp
-
-CMakeFiles/kinpo_tests.dir/code/file_service.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo_tests.dir/code/file_service.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp > CMakeFiles/kinpo_tests.dir/code/file_service.cpp.i
-
-CMakeFiles/kinpo_tests.dir/code/file_service.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/code/file_service.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/file_service.cpp -o CMakeFiles/kinpo_tests.dir/code/file_service.cpp.s
-
-CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o: CMakeFiles/kinpo_tests.dir/flags.make
-CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o: /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp
-CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o: CMakeFiles/kinpo_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o -MF CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o.d -o CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o -c /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp
-
-CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp > CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.i
-
-CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aleksejgodenko/kinpo_sem_result/code/step_formatter.cpp -o CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.s
-
 # Object files for target kinpo_tests
 kinpo_tests_OBJECTS = \
-"CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o" \
-"CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o" \
-"CMakeFiles/kinpo_tests.dir/code/parser.cpp.o" \
-"CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o" \
-"CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o" \
-"CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o"
+"CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o"
 
 # External object files for target kinpo_tests
 kinpo_tests_EXTERNAL_OBJECTS =
 
 kinpo_tests: CMakeFiles/kinpo_tests.dir/tests/tests.cpp.o
-kinpo_tests: CMakeFiles/kinpo_tests.dir/code/tokenize.cpp.o
-kinpo_tests: CMakeFiles/kinpo_tests.dir/code/parser.cpp.o
-kinpo_tests: CMakeFiles/kinpo_tests.dir/code/expression_solver.cpp.o
-kinpo_tests: CMakeFiles/kinpo_tests.dir/code/file_service.cpp.o
-kinpo_tests: CMakeFiles/kinpo_tests.dir/code/step_formatter.cpp.o
 kinpo_tests: CMakeFiles/kinpo_tests.dir/build.make
+kinpo_tests: libkinpo_lib.dylib
 kinpo_tests: lib/libgtest_main.a
 kinpo_tests: lib/libgtest.a
 kinpo_tests: CMakeFiles/kinpo_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable kinpo_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable kinpo_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kinpo_tests.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/bin/cmake -D TEST_TARGET=kinpo_tests -D TEST_EXECUTABLE=/Users/aleksejgodenko/kinpo_sem_result/build/kinpo_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/Users/aleksejgodenko/kinpo_sem_result/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=kinpo_tests_TESTS -D CTEST_FILE=/Users/aleksejgodenko/kinpo_sem_result/build/kinpo_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P /opt/homebrew/share/cmake/Modules/GoogleTestAddTests.cmake
 

@@ -1,3 +1,4 @@
+/Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles/kinpo_lib.dir
 /Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles/kinpo.dir
 /Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles/kinpo_tests.dir
 /Users/aleksejgodenko/kinpo_sem_result/build/CMakeFiles/test.dir
